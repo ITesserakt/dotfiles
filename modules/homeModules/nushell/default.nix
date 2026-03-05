@@ -25,6 +25,8 @@
           gstat
           polars
         ];
+
+        environmentVariables = config.home.sessionVariables;
       };
 
       home.file = {

@@ -49,6 +49,10 @@
 
     nixpkgs.config.allowUnfree = true;
 
+    home.shell = {
+      enableNushellIntegration = true;
+    };
+
     home.packages = with pkgs; [
       materialgram
       obsidian

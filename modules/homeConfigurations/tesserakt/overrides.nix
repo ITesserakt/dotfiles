@@ -12,5 +12,7 @@
       name = "ITesserakt";
       email = "potryas85@mail.ru";
     };
+
+    programs.eza.enableNushellIntegration = true;
   };
 }
