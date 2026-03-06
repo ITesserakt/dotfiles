@@ -123,6 +123,7 @@
           enableShadows = false;
           # shadowDirection = "center";
           telemetryEnabled = false;
+          clockStyle = "analog";
         };
 
         ui.settingsPanelMode = "centered";
