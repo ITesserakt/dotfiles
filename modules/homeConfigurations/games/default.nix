@@ -19,13 +19,14 @@
     };
 
     modules = with self.homeModules; [
-      bat
       base
+      bat
       btop
       carapace
       direnv
       discord
       eza
+      games
       gnome
       helix
       hypridle
