@@ -5,7 +5,6 @@
       settings = {
         legacy_layout = false;
 
-        background_alpha = 0.4;
         round_corners = 0;
         background_color = "000000";
 
