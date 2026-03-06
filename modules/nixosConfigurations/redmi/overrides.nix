@@ -9,5 +9,8 @@
     };
 
     services.desktopManager.gnome.enable = lib.mkForce false;
+    services.displayManager.gdm.settings = {
+      greeter.Include = "tesserakt,games";
+    };
   };
 }
