@@ -31,5 +31,6 @@
     nix.gc.dates = "weekly";
 
     nix.nixPath = [ "nixpkgs=${args.config.nixpkgs.flake.source}" ];
+    nix.channel.enable = false;
   };
 }
