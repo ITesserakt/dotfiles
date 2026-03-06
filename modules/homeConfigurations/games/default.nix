@@ -1,6 +1,6 @@
 { inputs, self, ... }:
 {
-  flake.nixosModules.redmi = {
+  flake.nixosModules.redmi = { pkgs, ... }: {
     users.users.games = {
       isNormalUser = true;
       description = "games";
@@ -9,7 +9,9 @@
         "video"
         "networkmanager"
       ];
+      shell = pkgs.fish;
     };
+    programs.fish.enable = true;
   };
 
   flake.homeConfigurations.games = inputs.home-manager.lib.homeManagerConfiguration {
@@ -36,8 +38,8 @@
       nix-index
       nix-search-tv
       noctalia-shell
-      oh-my-posh
       spotify
+      starship
       stylix
       tailscale
       vicinae
