@@ -18,6 +18,7 @@
       nvidia
       plymouth
       redmi
+      steam
       stylix
       tailscale
       zfs

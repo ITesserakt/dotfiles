@@ -35,6 +35,7 @@
       hyprland
       kde-connect
       kitty
+      mangohud
       nix-index
       nix-search-tv
       noctalia-shell
