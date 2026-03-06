@@ -30,6 +30,7 @@
       eza
       firefox
       gnome
+      local
       micro
     ];
   };
