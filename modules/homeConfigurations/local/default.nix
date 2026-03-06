@@ -24,9 +24,10 @@
     };
 
     modules = with self.homeModules; [
-      bat
       base
+      bat
       carapace
+      eza
       firefox
       gnome
       micro
