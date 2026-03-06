@@ -1,5 +1,27 @@
-{ self, config, inputs, ... }:
 {
+  self,
+  config,
+  inputs,
+  ...
+}:
+{
+  flake.nixosModules.redmi =
+    { pkgs, ... }:
+    {
+      users.users.tesserakt = {
+        isNormalUser = true;
+        description = "tesserakt";
+        extraGroups = [
+          "networkmanager"
+          "wheel"
+          "input"
+          "video"
+          "docker"
+        ];
+        shell = pkgs.nushell;
+      };
+    };
+
   flake.homeConfigurations.tesserakt = inputs.home-manager.lib.homeManagerConfiguration {
     pkgs = import inputs.nixpkgs {
       system = "x86_64-linux";
@@ -40,31 +62,31 @@
     ];
   };
 
-  flake.homeModules.tesserakt = { pkgs, ... }: {
-    home.username = "tesserakt";
-    home.homeDirectory = "/home/tesserakt";
-    home.stateVersion = "24.05";
+  flake.homeModules.tesserakt =
+    { pkgs, ... }:
+    {
+      home.username = "tesserakt";
+      home.homeDirectory = "/home/tesserakt";
+      home.stateVersion = "24.05";
 
-    programs.home-manager.enable = true;
+      nixpkgs.config.allowUnfree = true;
 
-    nixpkgs.config.allowUnfree = true;
+      home.shell = {
+        enableNushellIntegration = true;
+      };
 
-    home.shell = {
-      enableNushellIntegration = true;
+      home.packages = with pkgs; [
+        materialgram
+        obsidian
+        remmina
+        kdePackages.wacomtablet
+        graphite
+        rnote
+        jetbrains.rust-rover
+        zotero
+        typst
+        distrobox
+        config.flake.packages.${pkgs.stdenv.hostPlatform.system}.test-vkr
+      ];
     };
-
-    home.packages = with pkgs; [
-      materialgram
-      obsidian
-      remmina
-      kdePackages.wacomtablet
-      graphite
-      rnote
-      jetbrains.rust-rover
-      zotero
-      typst
-      distrobox
-      config.flake.packages.${pkgs.stdenv.hostPlatform.system}.test-vkr
-    ];
-  };
 }
