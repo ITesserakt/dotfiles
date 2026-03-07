@@ -26,7 +26,10 @@
           polars
         ];
 
-        environmentVariables = config.home.sessionVariables;
+        environmentVariables = config.home.sessionVariables // {
+          # nushell somehow removes this var
+          NH_FLAKE = "github:ITesserakt/dotfiles";
+        };
       };
 
       home.file = {
