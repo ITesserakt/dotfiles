@@ -11,10 +11,14 @@
       ];
 
       programs.spicetify = {
-        enable = true;
+        enable = false;
         enabledExtensions = with spice-pkgs.extensions; [
           adblock
         ];
       };
+
+      home.packages = [
+        pkgs.spotify
+      ];
     };
 }
