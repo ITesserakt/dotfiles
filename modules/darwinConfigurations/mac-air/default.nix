@@ -3,7 +3,6 @@
 		modules = with self.modules.darwin; [
 			mac-air
 			base
-			nh
 			nix
 			stylix
 			tailscale

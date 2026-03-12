@@ -22,12 +22,6 @@
 				emoji.package = pkgs.noto-fonts-color-emoji;
 				emoji.name = "Noto Color Emoji";
 			};
-
-			cursor = {
-				package = pkgs.bibata-cursors;
-				name = "Bibata-Modern-Classic";
-				size = 24;
-			};
 		};
 	};
 }
