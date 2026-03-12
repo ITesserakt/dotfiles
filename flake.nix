@@ -19,6 +19,10 @@
       url = "github:hyprwm/Hyprland/v0.54.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-darwin = {
+	url = "github:nix-darwin/nix-darwin";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-index = {
       url = "github:nix-community/nix-index";
       inputs.nixpkgs.follows = "nixpkgs";
