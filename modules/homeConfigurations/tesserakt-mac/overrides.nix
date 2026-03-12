@@ -11,7 +11,7 @@
       shellAliases.micro = lib.getExe pkgs.helix;
     };
 
-    programs.kitty.settings.background_blur = 30;
+    programs.kitty.settings.background_blur = 40;
     
     programs.git.settings.user = {
       name = "ITesserakt";
