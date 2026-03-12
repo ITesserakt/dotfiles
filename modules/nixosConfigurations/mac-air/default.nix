@@ -1,5 +1,5 @@
 { self, inputs, ... }: {
-	flake.darwinConfigurations."mac-air" = inputs.nix-darwin.lib.darwinSystem {
+	flake.darwinConfigurations."MacBook-Air-Vladimir" = inputs.nix-darwin.lib.darwinSystem {
 		modules = with self.nixosModules; [
 			mac-air
 			base
