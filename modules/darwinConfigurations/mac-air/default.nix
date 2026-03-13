@@ -12,5 +12,7 @@
 	flake.modules.darwin.mac-air = {
 		system.stateVersion = 6;
 		nixpkgs.hostPlatform = "aarch64-darwin";
+
+		programs.zsh.enable = true;
 	};
 }
