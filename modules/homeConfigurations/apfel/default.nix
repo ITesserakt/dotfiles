@@ -1,9 +1,8 @@
 { inputs, self, ... }: {
   flake.modules.darwin.mac-air = { pkgs, ... }: {
     users.users.apfel = {
-      isNormalUser = true;
       description = "apfel";
-      shell = pkgs.zsh;
+      shell = pkgs.nushell;
     };
 
     users.knownUsers = [ "apfel" ];
