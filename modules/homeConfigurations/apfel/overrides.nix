@@ -1,5 +1,5 @@
 {
-  flake.homeModules.tesserakt-mac = { lib, pkgs, ... }: {
+  flake.homeModules.apfel = { lib, pkgs, ... }: {
     # stylix.targets.zen-browser.profileNames = [ "wtb3ki0r.Default (release)" ];
     stylix.targets.zen-browser.enable = false;
 

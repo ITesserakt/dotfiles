@@ -1,19 +1,20 @@
 { inputs, self, ... }: {
   flake.modules.darwin."MacBook-Air-Vladimir" = { pkgs, ... }: {
-    users.users.tesserakt = {
+    users.users.apfel = {
       isNormalUser = true;
-      description = "tesserakt";
+      description = "apfel";
       shell = pkgs.nushell;
     };
   };
 
-  flake.homeConfigurations.tesserakt-mac = inputs.home-manager.lib.homeManagerConfiguration {
+  flake.homeConfigurations.apfel = inputs.home-manager.lib.homeManagerConfiguration {
     pkgs = import inputs.nixpkgs {
       system = "aarch64-darwin";
       allowUnfree = true;
     };
 
     modules = with self.homeModules; [
+      apfel
       bat
       base
       carapace
@@ -28,16 +29,15 @@
       oh-my-posh
       spotify
       stylix
-      tesserakt-mac
       yazi
       zen-browser
       zoxide
     ];
   };
 
-  flake.homeModules.tesserakt-mac = { pkgs, lib, ... }: {
-    home.username = "tesserakt";
-    home.homeDirectory = "/Users/tesserakt";
+  flake.homeModules.apfel = { pkgs, lib, ... }: {
+    home.username = "apfel";
+    home.homeDirectory = "/Users/apfel";
     home.stateVersion = "26.05";
 
     nixpkgs.config.allowUnfree = true;
