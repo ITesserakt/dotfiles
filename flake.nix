@@ -20,11 +20,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-darwin = {
-	url = "github:nix-darwin/nix-darwin";
-        inputs.nixpkgs.follows = "nixpkgs";
+    	url = "github:nix-darwin/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-index = {
       url = "github:nix-community/nix-index";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixos-apple-silicon = {
+      url = "github:tpwrules/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia = {

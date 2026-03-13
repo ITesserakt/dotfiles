@@ -1,5 +1,5 @@
 { inputs, self, ... }: {
-  flake.modules.darwin."MacBook-Air-Vladimir" = { pkgs, ... }: {
+  flake.modules.darwin.mac-air = { pkgs, ... }: {
     users.users.apfel = {
       isNormalUser = true;
       description = "apfel";

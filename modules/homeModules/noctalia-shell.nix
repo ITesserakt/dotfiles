@@ -1,13 +1,14 @@
 { inputs, ... }: {
-  flake.homeModules.noctalia-shell = { config, pkgs, ... }: {
+  flake.homeModules.noctalia-shell = { config, pkgs, lib, ... }: {
     imports = [
       inputs.noctalia.homeModules.default
     ];
 
     home.packages = with pkgs; [
-      gpu-screen-recorder
       kdePackages.qttools
       kdePackages.krdp
+    ] ++ lib.optionals pkgs.stdenv.isx86_64 [
+      pkgs.gpu-screen-recorder
     ];
     
     programs.noctalia-shell = {

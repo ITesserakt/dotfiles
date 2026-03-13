@@ -1,8 +1,8 @@
 { self, inputs, ... }: {
 	flake.darwinConfigurations."MacBook-Air-Vladimir" = inputs.nix-darwin.lib.darwinSystem {
 		modules = with self.modules.darwin; [
-			mac-air
 			base
+			mac-air
 			nix
 			stylix
 			tailscale

@@ -25,9 +25,10 @@
     ];
   };
 
-  flake.nixosModules.redmi = {
+  flake.nixosModules.redmi = { pkgs, ... }: {
     system.stateVersion = "24.05";
 
+    boot.kernelPackages = pkgs.linuxPackages_6_18;
     boot.kernelModules = [
       "ddcci_backlight"
       "i2c-dev"

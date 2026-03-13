@@ -15,7 +15,8 @@
     ];
   };
 
-  flake.nixosModules.acer = {
+  flake.nixosModules.acer = { pkgs, ... }: {
     system.stateVersion = "24.05";
+    boot.kernelPackages = pkgs.linuxPackages_6_18;
   };
 }
