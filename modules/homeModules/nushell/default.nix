@@ -32,15 +32,14 @@
         };
       };
 
-      home.file = let
-        nushellConfigHome = if pkgs.stdenv.isDarwin then
-          "${config.home.homeDirectory}/Library/Application Support/nushell"
-        else
-          "${config.xdg.configHome}/nushell";
-      in {
-        "${nushellConfigHome}/custom.nu".source = ./custom.nu;
-        "${nushellConfigHome}/completion.nu".source = ./completion.nu;
-        "${nushellConfigHome}/extra.nu".source = ./extra.nu;
-      };
+      home.file =
+        let
+          nushellConfigHome = "${config.xdg.configHome}/nushell";
+        in
+        {
+          "${nushellConfigHome}/custom.nu".source = ./custom.nu;
+          "${nushellConfigHome}/completion.nu".source = ./completion.nu;
+          "${nushellConfigHome}/extra.nu".source = ./extra.nu;
+        };
     };
 }

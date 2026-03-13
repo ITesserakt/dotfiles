@@ -3,8 +3,11 @@
     users.users.apfel = {
       isNormalUser = true;
       description = "apfel";
-      shell = pkgs.nushell;
+      shell = pkgs.zsh;
     };
+
+    users.knownUsers = [ "apfel" ];
+    programs.zsh.enable = true;
   };
 
   flake.homeConfigurations.apfel = inputs.home-manager.lib.homeManagerConfiguration {
@@ -15,8 +18,8 @@
 
     modules = with self.homeModules; [
       apfel
-      bat
       base
+      bat
       carapace
       direnv
       eza
@@ -29,6 +32,7 @@
       oh-my-posh
       spotify
       stylix
+      syncthing
       yazi
       zen-browser
       zoxide
@@ -43,14 +47,18 @@
     nixpkgs.config.allowUnfree = true;
 
     home.shell.enableNushellIntegration = true;
+    home.shell.enableZshIntegration = true;
 
     home.packages = with pkgs; [
       telegram-desktop
       obsidian
+      bitwarden-desktop
     ];
 
     home.sessionVariables = {
       SHELL = "${lib.getExe pkgs.nushell} -l -i";
     };
+
+    programs.zsh.enable = true;
   };
 }

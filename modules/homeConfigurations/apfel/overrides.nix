@@ -1,17 +1,14 @@
 {
   flake.homeModules.apfel = { lib, pkgs, ... }: {
-    # stylix.targets.zen-browser.profileNames = [ "wtb3ki0r.Default (release)" ];
-    stylix.targets.zen-browser.enable = false;
+    stylix.targets.zen-browser.profileNames = [ "bdnewxxm.Default (twilight)" ];
+    # stylix.targets.zen-browser.enable = false;
 
     programs.nushell = {
-      extraConfig = ''
-        source ~/.oh-my-posh.nu
-      '';
-
       shellAliases.micro = lib.getExe pkgs.helix;
     };
 
     programs.kitty.settings.background_blur = 40;
+    programs.kitty.settings.shell = ''zsh -c "nu"'';
     
     programs.git.settings.user = {
       name = "ITesserakt";
