@@ -8,6 +8,7 @@
     };
 
     programs.kitty.settings.background_blur = 40;
+    programs.kitty.settings.macos_option_as_alt = true;
     programs.kitty.settings.shell = ''zsh -c "nu"'';
     
     programs.git.settings.user = {
@@ -18,7 +19,5 @@
     programs.eza.enableNushellIntegration = true;
 
     stylix.icons.enable = lib.mkForce false;
-
-    xdg.enable = true;
   };
 }
