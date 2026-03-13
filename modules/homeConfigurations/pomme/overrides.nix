@@ -10,5 +10,7 @@
       name = "ITesserakt";
       email = "potryas85@mail.ru";
     };
+
+    stylix.targets.zen-browser.profileNames = [ "tp6i6jfo.Default Profile" ];
   };
 }
