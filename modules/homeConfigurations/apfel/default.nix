@@ -1,6 +1,7 @@
 { inputs, self, ... }: {
   flake.modules.darwin.mac-air = { pkgs, ... }: {
     users.users.apfel = {
+      uid = 502;
       description = "apfel";
       shell = pkgs.nushell;
     };
