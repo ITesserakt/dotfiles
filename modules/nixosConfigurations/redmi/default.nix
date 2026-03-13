@@ -26,6 +26,10 @@
   };
 
   flake.nixosModules.redmi = { pkgs, ... }: {
+    imports = [
+      ./_hardware-configuration.nix
+    ];
+    
     system.stateVersion = "24.05";
 
     boot.kernelPackages = pkgs.linuxPackages_6_18;

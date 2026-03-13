@@ -18,6 +18,7 @@
   flake.nixosModules.mac-air = { pkgs, ... }: {
     imports = [
       inputs.nixos-apple-silicon.nixosModules.default
+      ./_hardware-configuration.nix
     ];
     
     system.stateVersion = "25.05";
