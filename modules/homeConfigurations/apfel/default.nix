@@ -51,7 +51,6 @@
 
     home.sessionVariables = {
       SHELL = "${lib.getExe pkgs.nushell} -l -i";
-      EDITOR = lib.getExe pkgs.helix;
     };
   };
 }
