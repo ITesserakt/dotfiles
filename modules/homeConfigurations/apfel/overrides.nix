@@ -1,7 +1,7 @@
 {
   flake.homeModules.apfel = { lib, pkgs, ... }: {
     stylix.targets.zen-browser.profileNames = [ "bdnewxxm.Default (twilight)" ];
-    # stylix.targets.zen-browser.enable = false;
+    stylix.targets.zen-browser.enable = false;
 
     programs.nushell = {
       shellAliases.micro = lib.getExe pkgs.helix;
