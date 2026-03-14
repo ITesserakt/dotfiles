@@ -50,7 +50,6 @@
     home.shell.enableZshIntegration = true;
 
     home.packages = with pkgs; [
-      bitwarden-desktop
       obsidian
       telegram-desktop
     ];
