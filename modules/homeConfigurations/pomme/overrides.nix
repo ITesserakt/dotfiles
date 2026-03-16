@@ -12,5 +12,14 @@
     };
 
     stylix.targets.zen-browser.profileNames = [ "tp6i6jfo.Default Profile" ];
+    stylix.targets.zen-browser.enable = false;
+
+    wayland.windowManager.hyprland.settings = {
+      input.touchpad = {
+        disable_while_typing = true;
+        clickfinger_behavior = true;
+        tap-to-click = false;
+      };
+    };
   };
 }
