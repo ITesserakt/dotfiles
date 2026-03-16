@@ -16,7 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      url = "github:hyprwm/Hyprland/8606bc2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-darwin = {
