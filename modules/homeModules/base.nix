@@ -8,7 +8,7 @@
         nixd
         nil
       ] ++ lib.optionals (!pkgs.stdenv.isDarwin) [
-        libreoffice-qt6-fresh-unwrapped
+        libreoffice-qt6-fresh
       ];
 
       home.sessionVariables = {
