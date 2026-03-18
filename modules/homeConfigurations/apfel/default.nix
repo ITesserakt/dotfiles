@@ -28,6 +28,7 @@
       kitty
       nh
       nix-index
+      nix-search-tv
       nushell
       oh-my-posh
       spotify
@@ -51,6 +52,7 @@
 
     home.packages = with pkgs; [
       obsidian
+      raycast
       telegram-desktop
     ];
 
