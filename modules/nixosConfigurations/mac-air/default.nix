@@ -52,8 +52,8 @@
       asahi-bless
     ];
 
-    programs.dconf.profiles.user.databases = [{
-      settings."org/gnome/mutter".experimental-features = [ "scale-monitor-framebuffer" ];
-    }];
+    # programs.dconf.profiles.user.databases = [{
+    #   settings."org/gnome/mutter".experimental-features = [ "scale-monitor-framebuffer" ];
+    # }];
   };
 }
