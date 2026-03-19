@@ -12,5 +12,12 @@
     services.displayManager.gdm.settings = {
       greeter.Include = "tesserakt,games";
     };
+
+    services.openssh.enable = true;
+    services.sunshine = {
+      enable = true;
+      openFirewall = true;
+      capSysAdmin = true;
+    };
   };
 }
