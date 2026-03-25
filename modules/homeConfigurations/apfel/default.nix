@@ -53,7 +53,6 @@
     home.packages = with pkgs; [
       obsidian
       raycast
-      telegram-desktop
     ];
 
     home.sessionVariables = {
