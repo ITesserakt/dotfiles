@@ -120,7 +120,6 @@ in
           [
             microsoft-gsl
             range-v3
-            libutempter
             yaml-cpp
             libunicode
             harfbuzz
@@ -131,10 +130,13 @@ in
             qt5compat
             qtbase
             wrapQtAppsHook
-            qtwayland
             qtmultimedia
             qtdeclarative
-          ]);
+          ])
+          ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
+            pkgs.libutempter
+            pkgs.kdePackages.qtwayland
+          ];
 
         configurePhase = ''
           runHook preConfigure
@@ -160,7 +162,7 @@ in
           runHook postInstall
         '';
 
-        postInstall = ''
+        postInstall = pkgs.lib.optionalString pkgs.stdenv.isLinux ''
           mkdir -p $out/nix-support $terminfo/share
           mv $out/share/terminfo $terminfo/share/
 
