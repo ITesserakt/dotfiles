@@ -35,6 +35,7 @@
               "mini-docker"
               "screen-recorder"
               "kde-connect"
+              "workspace-overview"
             ]
         );
         version = 1;
