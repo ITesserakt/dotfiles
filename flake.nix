@@ -20,7 +20,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-darwin = {
-    	url = "github:nix-darwin/nix-darwin";
+      url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-index = {
@@ -47,6 +47,10 @@
     vicinae = {
       url = "github:vicinaehq/vicinae";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    wayshot = {
+      url = "github:waycrate/wayshot";
+      flake = false;
     };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
