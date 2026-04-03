@@ -39,7 +39,7 @@
       git
       gnome
       helix
-      hypridle
+      # hypridle
       hyprland
       kde-connect
       kitty
