@@ -19,5 +19,9 @@
       openFirewall = true;
       capSysAdmin = true;
     };
+    services.open-webui = {
+      enable = true;
+      openFirewall = true;
+    };
   };
 }
