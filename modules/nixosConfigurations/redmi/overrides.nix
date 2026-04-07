@@ -14,11 +14,11 @@
     };
 
     services.openssh.enable = true;
-    services.sunshine = {
-      enable = true;
-      openFirewall = true;
-      capSysAdmin = true;
-    };
+    # services.sunshine = {
+    #   enable = false;
+    #   openFirewall = true;
+    #   capSysAdmin = true;
+    # };
     services.open-webui = {
       enable = true;
       openFirewall = true;
