@@ -22,6 +22,7 @@
       stylix
       tailscale
       zfs
+      zswap
     ];
   };
 
