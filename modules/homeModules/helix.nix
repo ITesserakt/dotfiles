@@ -48,6 +48,13 @@
           ":buffer-close!"
           ":redraw"
         ];
+        settings.keys.normal."C-y" = [
+          '':sh rm -f /tmp/unique-file''
+          '':insert-output yazi "%{buffer_name}" --chooser-file=/tmp/unique-file''
+          '':sh printf "\x1b[?1049h\x1b[?2004h" > /dev/tty''
+          '':open %sh{cat /tmp/unique-file}''
+          '':redraw''
+        ];
         settings.keys.insert = {
           "C-ц" = [ "delete_word_backward" ];
           "C-backspace" = [ "delete_word_backward" ];
