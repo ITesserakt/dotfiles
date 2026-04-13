@@ -57,5 +57,7 @@
     ];
 
     services.udev.extraRules = ''KERNEL=="macsmc-battery", SUBSYSTEM=="power_supply", ATTR{charge_control_end_threshold}="80", ATTR{charge_control_start_threshold}="70"'';
+
+    services.power-profiles-daemon.enable = true;
   };
 }
