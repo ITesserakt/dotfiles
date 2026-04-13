@@ -39,7 +39,7 @@
       git
       gnome
       helix
-      hypridle
+      # hypridle
       hyprland
       kde-connect
       kitty
@@ -88,6 +88,7 @@
         typst
         distrobox
         config.flake.packages.${pkgs.stdenv.hostPlatform.system}.test-vkr
+        config.flake.packages.${pkgs.stdenv.hostPlatform.system}.wayshot
       ];
     };
 }

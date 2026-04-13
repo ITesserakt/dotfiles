@@ -5,7 +5,6 @@
 			mac-air
 			nix
 			stylix
-			tailscale
 		];
 	};
 
@@ -14,5 +13,7 @@
 		nixpkgs.hostPlatform = "aarch64-darwin";
 
 		programs.zsh.enable = true;
+
+		security.pam.services.sudo_local.touchIdAuth = true;
 	};
 }
