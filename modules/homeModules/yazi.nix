@@ -29,6 +29,7 @@
         ];
         plugins = {
           ouch = pkgs.yaziPlugins.ouch;
+          duckdb = pkgs.yaziPlugins.duckdb;
         };
       };
     };
