@@ -23,7 +23,7 @@
           libgbm
         ];
 
-        cargoHash = "sha256-ZbYCifFug7TZVxng1NINdHgSdKsH1NLvYpvw5ENPn2Y=";
+        cargoHash = "sha256-nzByh3fkukptF5soFdRg+2YmEat9kvnbMvzkZFBGeAs=";
 
         doCheck = false;
       };
