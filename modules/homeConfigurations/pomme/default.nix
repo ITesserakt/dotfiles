@@ -1,6 +1,5 @@
 {
   self,
-  config,
   inputs, ...
 }: {
   flake.nixosModules.pomme = { pkgs, ... }: {
@@ -63,6 +62,7 @@
 
     home.packages = with pkgs; [
       materialgram
+      libreoffice-qt-fresh-unwrapped
     ];
   };
 }
