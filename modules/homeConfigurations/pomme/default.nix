@@ -63,6 +63,7 @@
     home.packages = with pkgs; [
       materialgram
       libreoffice-qt-fresh-unwrapped
+      wayshot
     ];
   };
 }
