@@ -34,12 +34,25 @@
             sha256 = "sha256-Y2+1CHr8Yufz6JYren/zqPe4wJTx3Y0xyNchft2MwYE=";
           };
 
+          typst-bmstu-presentation = pkgs.fetchFromGitHub {
+            owner = "ITesserakt";
+            repo = "typst-bmstu-presentation";
+            rev = "master";
+            sha256 = "";
+          };
+
           unpublishedTypstPackages = mkTypstPackagesDrv "unpublished-typst-packages" [
             {
               name = "bmstu-report";
               version = "0.1.3";
               namespace = "local";
               input = typst-bmstu-report;
+            }
+            {
+              name = "bmstu-presentation";
+              version = "0.1.1";
+              namespace = "local";
+              input = typst-bmstu-presentation;
             }
           ];
         in
@@ -59,7 +72,10 @@
             }
             {
               name = "TYPST_FONT_PATHS";
-              prefix = "${typst-bmstu-report}/fonts";
+              prefix = builtins.concatStringsSep ":" [
+                "${typst-bmstu-report}/fonts"
+                "${typst-bmstu-presentation}/fonts"
+              ];
             }
             {
               name = "TYPST_IGNORE_SYSTEM_FONTS";
