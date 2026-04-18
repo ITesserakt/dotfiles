@@ -7,6 +7,10 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
+    caelestia-shell = {
+      url = "github:caelestia-dots/shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     erosanix = {
       url = "github:emmanuelrosa/erosanix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,7 +20,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      url = "github:hyprwm/Hyprland/v0.53.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-darwin = {
