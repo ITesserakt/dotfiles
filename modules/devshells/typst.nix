@@ -48,6 +48,7 @@
             typstyle
             just
             just-lsp
+            typst
           ];
 
           env = [
