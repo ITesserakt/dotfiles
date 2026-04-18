@@ -66,7 +66,7 @@
       font-awesome
       
       mission-center
-      materialgram
+      telegram-desktop
       
       mangohud
       heroic

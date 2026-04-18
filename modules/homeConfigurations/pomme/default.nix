@@ -61,7 +61,7 @@
     home.shell.enableNushellIntegration = true;
 
     home.packages = with pkgs; [
-      materialgram
+      telegram-desktop
       libreoffice-qt-fresh-unwrapped
       wayshot
       duckdb

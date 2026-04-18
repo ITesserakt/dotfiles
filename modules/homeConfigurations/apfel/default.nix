@@ -53,6 +53,7 @@
     home.packages = with pkgs; [
       obsidian
       raycast
+      zotero
     ];
 
     home.sessionVariables = {

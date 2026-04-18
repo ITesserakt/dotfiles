@@ -64,7 +64,7 @@
   };
 
   flake.homeModules.tesserakt =
-    { pkgs, ... }:
+    { pkgs, self', ... }:
     {
       home.username = "tesserakt";
       home.homeDirectory = "/home/tesserakt";
@@ -77,7 +77,7 @@
       };
 
       home.packages = with pkgs; [
-        materialgram
+        telegram-desktop
         obsidian
         remmina
         kdePackages.wacomtablet
@@ -87,7 +87,7 @@
         zotero
         typst
         distrobox
-        config.flake.packages.${pkgs.stdenv.hostPlatform.system}.test-vkr
+        self'.packages.test-vkr
         wayshot
       ];
     };
