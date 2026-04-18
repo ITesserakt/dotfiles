@@ -27,19 +27,20 @@
             in
             pkgs.linkFarm name linkFarmEntries;
 
-          mkTypstPackageFromGitHub = name: version: config: {
-            inherit name version;
-            namespace = "local";
-            input = pkgs.fetchFromGitHub config;
+          typst-bmstu-report = pkgs.fetchFromGitHub {
+            owner = "ITesserakt";
+            repo = "typst-bmstu-report";
+            rev = "master";
+            sha256 = "sha256-Y2+1CHr8Yufz6JYren/zqPe4wJTx3Y0xyNchft2MwYE=";
           };
 
           unpublishedTypstPackages = mkTypstPackagesDrv "unpublished-typst-packages" [
-            (mkTypstPackageFromGitHub "bmstu-report" "0.1.3" {
-              owner = "ITesserakt";
-              repo = "typst-bmstu-report";
-              rev = "master";
-              sha256 = "sha256-Y2+1CHr8Yufz6JYren/zqPe4wJTx3Y0xyNchft2MwYE=";
-            })
+            {
+              name = "bmstu-report";
+              version = "0.1.3";
+              namespace = "local";
+              input = typst-bmstu-report;
+            }
           ];
         in
         {
@@ -54,7 +55,15 @@
           env = [
             {
               name = "TYPST_PACKAGE_PATH";
-              value = lib.strings.escapeShellArg unpublishedTypstPackages;
+              value = "${lib.strings.escapeShellArg unpublishedTypstPackages}";
+            }
+            {
+              name = "TYPST_FONT_PATHS";
+              prefix = "${typst-bmstu-report}/fonts";
+            }
+            {
+              name = "TYPST_IGNORE_SYSTEM_FONTS";
+              value = "true";
             }
           ];
         };
