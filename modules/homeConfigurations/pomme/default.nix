@@ -64,6 +64,7 @@
       materialgram
       libreoffice-qt-fresh-unwrapped
       wayshot
+      duckdb
     ];
   };
 }
