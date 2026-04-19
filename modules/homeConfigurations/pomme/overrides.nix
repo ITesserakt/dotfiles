@@ -24,8 +24,6 @@
         };
       };
 
-      services.toshy.desktopEnvironment = "hyprland";
-
       programs.noctalia-shell.settings = {
         bar.barType = lib.mkForce "floating";
         bar.density = "comfortable";
@@ -92,6 +90,10 @@
         ];
 
         ui.panelBackgroundOpacity = lib.mkForce 0.6;
+        
+        general.forceBlackScreenCorners = true;
+
+        idle.enabled = true;
       };
     };
 }
