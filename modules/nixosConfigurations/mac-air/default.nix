@@ -3,7 +3,6 @@
   flake.nixosConfigurations.mac-air = lib.nixosSystem {
     modules = with self.nixosModules; [
       asahi
-      auto-cpufreq
       base
       beesd
       btrfs
@@ -45,5 +44,6 @@
     };
 
     services.udev.extraRules = ''KERNEL=="macsmc-battery", SUBSYSTEM=="power_supply", ATTR{charge_control_end_threshold}="80", ATTR{charge_control_start_threshold}="70"'';
+    services.tuned.enable = true;
   };
 }
