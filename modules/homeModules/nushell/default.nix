@@ -29,6 +29,7 @@
         environmentVariables = config.home.sessionVariables // {
           # nushell somehow removes this var
           NH_FLAKE = "github:ITesserakt/dotfiles";
+          SSH_AUTH_SOCK = if config.services.ssh-agent.enable then "$XDG_RUNTIME_DIR/ssh-agent.socket" else null;
         };
       };
 

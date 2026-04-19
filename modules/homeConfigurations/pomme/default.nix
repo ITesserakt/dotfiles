@@ -62,7 +62,6 @@
 
     home.packages = with pkgs; [
       telegram-desktop
-      libreoffice-qt-fresh-unwrapped
       wayshot
       duckdb
     ];

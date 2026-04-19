@@ -25,6 +25,8 @@
         terminal-exec.enable = true;
       };
 
+      services.ssh-agent.enable = true;
+
       services.home-manager.autoExpire.enable = true;
       programs.home-manager.enable = true;
     };
