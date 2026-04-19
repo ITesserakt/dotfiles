@@ -13,8 +13,6 @@
     {
       home.packages = with pkgs; [
         wl-clipboard
-        wlsunset
-        brightnessctl
         (hyprshot.override {
           hyprland = hyprland-pkgs.hyprland;
         })
@@ -52,6 +50,21 @@
         settings.bind = [
           "SUPER, 3, exec, ${lib.getExe pkgs.kitty} -e ${lib.getExe pkgs.btop}"
           "SUPER, 4, exec, ${lib.getExe pkgs.kitty}"
+        ];
+
+        settings.bindel = [
+          ", XF86AudioRaiseVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+          ", XF86AudioLowerVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+
+          ", XF86MonBrightnessUp, exec, ${lib.getExe pkgs.brightnessctl} s +5%"
+          ", XF86MonBrightnessDown, exec, ${lib.getExe pkgs.brightnessctl} s 5%-"
+        ];
+        settings.bindl = [
+          ", XF86AudioMute, exec, ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+          ", XF86AudioMicMute, exec, ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+          ", XF86AudioPlay, exec, ${lib.getExe pkgs.playerctl} play-pause"
+          ", XF86AudioPrev, exec, ${lib.getExe pkgs.playerctl} previous"
+          ", XF86AudioNext, exec, ${lib.getExe pkgs.playerctl} next"
         ];
 
         plugins = [ ];
