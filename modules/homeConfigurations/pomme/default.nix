@@ -1,30 +1,35 @@
 {
   self,
-  inputs, ...
-}: {
-  flake.nixosModules.pomme = { pkgs, ... }: {
-    users.users.pomme = {
-      isNormalUser = true;
-      description = "pomme";
-      extraGroups = [
-        "networkmanager"
-        "wheel"
-        "input"
-        "video"
-      ];
-      shell = pkgs.nushell;
+  inputs,
+  ...
+}:
+{
+  flake.nixosModules.pomme =
+    { pkgs, ... }:
+    {
+      users.users.pomme = {
+        isNormalUser = true;
+        description = "pomme";
+        extraGroups = [
+          "networkmanager"
+          "wheel"
+          "input"
+          "video"
+        ];
+        shell = pkgs.nushell;
+      };
     };
-  };
 
   flake.homeConfigurations.pomme = inputs.home-manager.lib.homeManagerConfiguration {
     pkgs = import inputs.nixpkgs {
       system = "aarch64-linux";
-      allowUnfree = true;
+      config.allowUnfree = true;
+      overlays = [ inputs.toshy.overlays.default ];
     };
 
     modules = with self.homeModules; [
-      bat
       base
+      bat
       btop
       carapace
       direnv
@@ -40,10 +45,11 @@
       noctalia-shell
       nushell
       oh-my-posh
+      pomme
       stylix
       syncthing
       tailscale
-      pomme
+      # toshy
       vicinae
       yazi
       zen-browser
@@ -51,19 +57,21 @@
     ];
   };
 
-  flake.homeModules.pomme = { pkgs, ... }: {
-    home.username = "pomme";
-    home.homeDirectory = "/home/pomme";
-    home.stateVersion = "26.05";
+  flake.homeModules.pomme =
+    { pkgs, ... }:
+    {
+      home.username = "pomme";
+      home.homeDirectory = "/home/pomme";
+      home.stateVersion = "26.05";
 
-    nixpkgs.config.allowUnfree = true;
+      nixpkgs.config.allowUnfree = true;
 
-    home.shell.enableNushellIntegration = true;
+      home.shell.enableNushellIntegration = true;
 
-    home.packages = with pkgs; [
-      telegram-desktop
-      wayshot
-      duckdb
-    ];
-  };
+      home.packages = with pkgs; [
+        telegram-desktop
+        wayshot
+        duckdb
+      ];
+    };
 }
