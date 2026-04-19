@@ -15,6 +15,7 @@
           "wheel"
           "input"
           "video"
+          "uinput"
         ];
         shell = pkgs.nushell;
       };

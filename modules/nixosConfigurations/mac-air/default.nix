@@ -14,7 +14,7 @@
       pomme
       stylix
       tailscale
-      toshy
+      toshy-emulation
     ];
   };
 
