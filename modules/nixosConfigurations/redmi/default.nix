@@ -3,6 +3,7 @@
   flake.nixosConfigurations.redmi = lib.nixosSystem {
     modules = with self.nixosModules; [
       appimage
+      auto-cpufreq
       base
       beesd
       btrfs

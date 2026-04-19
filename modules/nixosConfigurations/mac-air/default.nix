@@ -3,6 +3,7 @@
   flake.nixosConfigurations.mac-air = lib.nixosSystem {
     modules = with self.nixosModules; [
       asahi
+      auto-cpufreq
       base
       beesd
       btrfs
