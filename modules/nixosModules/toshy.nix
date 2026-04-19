@@ -30,6 +30,7 @@
                 meta = "layer(meta_mac)";
                 leftalt = "leftalt";
                 fn = "overload(fn_key, A-f12)";
+                sleep = "A-f11";
               };
 
               "meta_mac:M" = {
@@ -39,12 +40,15 @@
 
                 tab = "swapm(app_switch_state, M-tab)";
                 "`" = "A-f6";
+                backspace = "delete";
+                space = "M-space";
               }
               // mkBinds "C" [
                 "d"
                 "w"
                 "t"
                 "a"
+                "z"
               ];
 
               "app_switch_state:M" = {
@@ -57,7 +61,7 @@
               "altgr:G" = {
                 left = "home";
                 right = "end";
-                backspace = "delete";
+                backspace = "C-backspace";
               };
 
               fn_key = {
