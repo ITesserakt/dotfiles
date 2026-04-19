@@ -36,7 +36,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-apple-silicon = {
-      url = "github:tpwrules/nixos-apple-silicon";
+      url = "github:nix-community/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia = {
@@ -50,6 +50,10 @@
     };
     stylix = {
       url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    toshy = {
+      url = "github:truongsinh/Toshy";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     vicinae = {

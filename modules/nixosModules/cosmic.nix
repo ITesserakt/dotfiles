@@ -6,5 +6,12 @@
     };
 
     services.displayManager.cosmic-greeter.enable = true;
+
+    nix.settings.trusted-substituters = [
+      "https://cosmic.cachix.org/"
+    ];
+    nix.settings.trusted-public-keys = [
+      "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
+    ];
   };
 }

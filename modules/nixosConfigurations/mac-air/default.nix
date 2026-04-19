@@ -1,6 +1,8 @@
-{ self, inputs, lib, ... }: {
+{ self, lib, ... }:
+{
   flake.nixosConfigurations.mac-air = lib.nixosSystem {
     modules = with self.nixosModules; [
+      asahi
       base
       beesd
       btrfs
@@ -12,15 +14,15 @@
       pomme
       stylix
       tailscale
+      toshy
     ];
   };
 
-  flake.nixosModules.mac-air = { pkgs, ... }: {
+  flake.nixosModules.mac-air = {
     imports = [
-      inputs.nixos-apple-silicon.nixosModules.default
       ./_hardware-configuration.nix
     ];
-    
+
     system.stateVersion = "25.05";
 
     boot.loader.systemd-boot.enable = true;
@@ -33,10 +35,7 @@
     hardware.asahi = {
       peripheralFirmwareDirectory = ./firmware;
       extractPeripheralFirmware = false;
-      setupAsahiSound = true;
     };
-
-    hardware.graphics.enable32Bit = lib.mkForce false;
 
     zramSwap = {
       enable = true;
@@ -44,20 +43,6 @@
       algorithm = "zstd";
     };
 
-    networking = {
-      networkmanager.wifi.backend = "iwd";
-      wireless.iwd = {
-        enable = true;
-        settings.General.EnableNetworkConfiguration = true;
-      };
-    };
-
-    environment.systemPackages = with pkgs; [
-      asahi-bless
-    ];
-
     services.udev.extraRules = ''KERNEL=="macsmc-battery", SUBSYSTEM=="power_supply", ATTR{charge_control_end_threshold}="80", ATTR{charge_control_start_threshold}="70"'';
-
-    services.power-profiles-daemon.enable = true;
   };
 }

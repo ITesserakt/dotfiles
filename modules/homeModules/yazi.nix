@@ -60,6 +60,26 @@
           ouch = pkgs.yaziPlugins.ouch;
           duckdb = pkgs.yaziPlugins.duckdb;
         };
+        vfs.services = {
+          redmi = {
+            type = "sftp";
+            host = "100.66.89.100";
+            user = "tesserakt";
+            port = 22;
+          };
+          archlinux = {
+            type = "sftp";
+            host = "100.121.107.19";
+            user = "local";
+            port = 22;
+          };
+          urmom = {
+            type = "sftp";
+            host = "100.84.11.95";
+            user = "root";
+            port = 22;
+          };
+        };
       };
     };
 }
