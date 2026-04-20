@@ -50,7 +50,6 @@
       stylix
       syncthing
       tailscale
-      # toshy
       vicinae
       yazi
       zen-browser
@@ -73,6 +72,7 @@
         telegram-desktop
         wayshot
         duckdb
+        zotero
       ];
     };
 }

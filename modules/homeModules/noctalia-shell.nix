@@ -121,7 +121,10 @@
         general = {
           dimmerOpacity = "0";
           showScreenCorners = true;
-          lockOnSuspend = false;
+          lockOnSuspend = true;
+          lockScreenAnimations = true;
+          enableLockScreenMediaControls = true;
+          passwordChars = true;
           enableShadows = false;
           # shadowDirection = "center";
           telemetryEnabled = false;
