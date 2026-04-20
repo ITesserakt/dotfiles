@@ -38,7 +38,7 @@
             owner = "ITesserakt";
             repo = "typst-bmstu-presentation";
             rev = "master";
-            sha256 = "sha256-P7f0lQjwvs/7H0ATlAd54vnXnuhjMihl/jxst2Dx6sQ=";
+            sha256 = "sha256-/KnsAu9a7st28qxyT977ddKmviQm7j6HeFwgfr4PJfQ=";
           };
 
           unpublishedTypstPackages = mkTypstPackagesDrv "unpublished-typst-packages" [
