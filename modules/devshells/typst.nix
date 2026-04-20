@@ -50,7 +50,7 @@
             }
             {
               name = "bmstu-presentation";
-              version = "0.1.1";
+              version = "0.1.2";
               namespace = "local";
               input = typst-bmstu-presentation;
             }
