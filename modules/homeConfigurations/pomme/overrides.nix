@@ -1,6 +1,10 @@
 {
   flake.homeModules.pomme =
-    { pkgs, lib, ... }:
+    {
+      pkgs,
+      lib,
+      ...
+    }:
     {
       programs.nushell.shellAliases = {
         micro = lib.getExe pkgs.helix;
@@ -22,6 +26,18 @@
           clickfinger_behavior = true;
           tap-to-click = false;
         };
+      };
+
+      services.linux-wallpaperengine = {
+        assetsPath = ./wallpapers/assets;
+        wallpapers = [
+          {
+            wallpaperId = "${./wallpapers/default}";
+            fps = 24;
+            monitor = "eDP-1";
+            scaling = "fill";
+          }
+        ];
       };
 
       programs.noctalia-shell.settings = {
@@ -90,7 +106,7 @@
         ];
 
         ui.panelBackgroundOpacity = lib.mkForce 0.6;
-        
+
         general.forceBlackScreenCorners = true;
 
         idle.enabled = true;

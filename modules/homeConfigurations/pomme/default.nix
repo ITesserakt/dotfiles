@@ -41,6 +41,7 @@
       hypridle
       hyprland
       kitty
+      linux-wallpaperengine
       nix-index
       nix-search-tv
       noctalia-shell
