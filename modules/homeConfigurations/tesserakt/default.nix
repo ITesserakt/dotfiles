@@ -64,7 +64,7 @@
   };
 
   flake.homeModules.tesserakt =
-    { pkgs, self', ... }:
+    { pkgs, ... }:
     {
       home.username = "tesserakt";
       home.homeDirectory = "/home/tesserakt";
@@ -87,7 +87,7 @@
         zotero
         typst
         distrobox
-        self'.packages.test-vkr
+        config.flake.packages.${pkgs.stdenv.hostPlatform.system}.test-vkr
         wayshot
       ];
     };
