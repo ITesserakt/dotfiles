@@ -41,19 +41,15 @@
             sha256 = "sha256-/KnsAu9a7st28qxyT977ddKmviQm7j6HeFwgfr4PJfQ=";
           };
 
+          mkTypstPackage = name: input: {
+            inherit name input;
+            namespace = "local";
+            version = (fromTOML (builtins.readFile "${input}/typst.toml")).package.version;
+          };
+
           unpublishedTypstPackages = mkTypstPackagesDrv "unpublished-typst-packages" [
-            {
-              name = "bmstu-report";
-              version = "0.1.3";
-              namespace = "local";
-              input = typst-bmstu-report;
-            }
-            {
-              name = "bmstu-presentation";
-              version = "0.1.2";
-              namespace = "local";
-              input = typst-bmstu-presentation;
-            }
+            (mkTypstPackage "bmstu-report" typst-bmstu-report)
+            (mkTypstPackage "bmstu-presentation" typst-bmstu-presentation)
           ];
         in
         {
