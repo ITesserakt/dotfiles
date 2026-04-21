@@ -37,8 +37,8 @@
           typst-bmstu-presentation = pkgs.fetchFromGitHub {
             owner = "ITesserakt";
             repo = "typst-bmstu-presentation";
-            rev = "master";
-            sha256 = "sha256-IJCRqVf04m4n/n1LLHfDGNCdet8phleZ6S/gf8WE6q0=";
+            rev = "7244c1f22de4795c40cde8406eedccba6302d11f";
+            sha256 = "sha256-/KnsAu9a7st28qxyT977ddKmviQm7j6HeFwgfr4PJfQ=";
           };
 
           unpublishedTypstPackages = mkTypstPackagesDrv "unpublished-typst-packages" [
