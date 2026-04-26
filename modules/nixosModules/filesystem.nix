@@ -8,6 +8,6 @@
       }];
     };
 
-    boot.supportedFilesystems = [ "zfs" "ntfs" ];
+    boot.supportedFilesystems = [ "ntfs" ];
   };
 }

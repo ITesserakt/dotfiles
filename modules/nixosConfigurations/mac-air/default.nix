@@ -6,8 +6,9 @@
       base
       beesd
       btrfs
-      hyprland
+      filesystem
       gnome
+      hyprland
       mac-air
       nh
       nix
@@ -33,6 +34,7 @@
       boot.kernelParams = [
         "appledrm.show_notch=1"
       ];
+      boot.supportedFilesystems = [ "apfs" ];
 
       boot.kernelPackages =
         let

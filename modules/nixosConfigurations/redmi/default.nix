@@ -39,5 +39,6 @@
       "ddcci_backlight"
       "i2c-dev"
     ];
+    boot.supportedFilesystems = [ "zfs" ];
   };
 }
