@@ -76,6 +76,7 @@
       comma
 
       vintagestory
+      prismlauncher
     ];
   };
 }
