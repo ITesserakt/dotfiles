@@ -1,7 +1,9 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-
+    stable-nixpkgs.url = "github:NixOS/nixpkgs/871b9fd269ff6246794583ce4ee1031e1da71895";
+    nightly-nixpkgs.url = "github:NixOS/nixpkgs/master";
+    
     import-tree.url = "github:vic/import-tree";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";

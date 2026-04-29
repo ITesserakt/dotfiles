@@ -1,19 +1,25 @@
-{ inputs, self, ... }: {
-  flake.modules.darwin.mac-air = { pkgs, ... }: {
-    users.users.apfel = {
-      uid = 502;
-      description = "apfel";
-      shell = pkgs.nushell;
-    };
+{ inputs, self, ... }:
+{
+  flake.modules.darwin.mac-air =
+    { pkgs, ... }:
+    {
+      users.users.apfel = {
+        uid = 502;
+        description = "apfel";
+        shell = pkgs.nushell;
+      };
 
-    users.knownUsers = [ "apfel" ];
-    programs.zsh.enable = true;
-  };
+      users.knownUsers = [ "apfel" ];
+      programs.zsh.enable = true;
+    };
 
   flake.homeConfigurations.apfel = inputs.home-manager.lib.homeManagerConfiguration {
     pkgs = import inputs.nixpkgs {
       system = "aarch64-darwin";
       allowUnfree = true;
+      overlays = [
+        self.overlays.broken
+      ];
     };
 
     modules = with self.homeModules; [
@@ -40,26 +46,28 @@
     ];
   };
 
-  flake.homeModules.apfel = { pkgs, lib, ... }: {
-    home.username = "apfel";
-    home.homeDirectory = "/Users/apfel";
-    home.stateVersion = "26.05";
+  flake.homeModules.apfel =
+    { pkgs, lib, ... }:
+    {
+      home.username = "apfel";
+      home.homeDirectory = "/Users/apfel";
+      home.stateVersion = "26.05";
 
-    nixpkgs.config.allowUnfree = true;
+      nixpkgs.config.allowUnfree = true;
 
-    home.shell.enableNushellIntegration = true;
-    home.shell.enableZshIntegration = true;
+      home.shell.enableNushellIntegration = true;
+      home.shell.enableZshIntegration = true;
 
-    home.packages = with pkgs; [
-      obsidian
-      raycast
-      zotero
-    ];
+      home.packages = with pkgs; [
+        obsidian
+        raycast
+        zotero
+      ];
 
-    home.sessionVariables = {
-      SHELL = "${lib.getExe pkgs.nushell} -l -i";
+      home.sessionVariables = {
+        SHELL = "${lib.getExe pkgs.nushell} -l -i";
+      };
+
+      programs.zsh.enable = true;
     };
-
-    programs.zsh.enable = true;
-  };
 }
