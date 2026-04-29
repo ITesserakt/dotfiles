@@ -18,7 +18,7 @@
       system = "aarch64-darwin";
       allowUnfree = true;
       overlays = [
-        self.overlays.broken
+        self.overlays.direnv
       ];
     };
 

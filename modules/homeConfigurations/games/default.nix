@@ -1,23 +1,29 @@
 { inputs, self, ... }:
 {
-  flake.nixosModules.redmi = { pkgs, ... }: {
-    users.users.games = {
-      isNormalUser = true;
-      description = "games";
-      extraGroups = [
-        "input"
-        "video"
-        "networkmanager"
-      ];
-      shell = pkgs.fish;
+  flake.nixosModules.redmi =
+    { pkgs, ... }:
+    {
+      users.users.games = {
+        isNormalUser = true;
+        description = "games";
+        extraGroups = [
+          "input"
+          "video"
+          "networkmanager"
+        ];
+        shell = pkgs.fish;
+      };
+      programs.fish.enable = true;
     };
-    programs.fish.enable = true;
-  };
 
   flake.homeConfigurations.games = inputs.home-manager.lib.homeManagerConfiguration {
     pkgs = import inputs.nixpkgs {
       system = "x86_64-linux";
-      allowUnfree = true;
+      config.allowUnfree = true;
+
+      overlays = with self.overlays; [
+        clapper
+      ];
     };
 
     modules = with self.homeModules; [
@@ -50,33 +56,35 @@
     ];
   };
 
-  flake.homeModules.games = { pkgs, ... }: {
-    home.username = "games";
-    home.homeDirectory = "/home/games";
-    home.stateVersion = "24.05";
+  flake.homeModules.games =
+    { pkgs, ... }:
+    {
+      home.username = "games";
+      home.homeDirectory = "/home/games";
+      home.stateVersion = "24.05";
 
-    nixpkgs.config.allowUnfree = true;
+      nixpkgs.config.allowUnfree = true;
 
-    home.shell = {
-      enableFishIntegration = true;
+      home.shell = {
+        enableFishIntegration = true;
+      };
+
+      home.packages = with pkgs; [
+        cantarell-fonts
+        font-awesome
+
+        mission-center
+        telegram-desktop
+
+        mangohud
+        heroic
+        wineWow64Packages.stagingFull
+
+        qbittorrent
+        comma
+
+        vintagestory
+        prismlauncher
+      ];
     };
-
-    home.packages = with pkgs; [
-      cantarell-fonts
-      font-awesome
-      
-      mission-center
-      telegram-desktop
-      
-      mangohud
-      heroic
-      wineWow64Packages.stagingFull
-      
-      qbittorrent
-      comma
-
-      vintagestory
-      prismlauncher
-    ];
-  };
 }

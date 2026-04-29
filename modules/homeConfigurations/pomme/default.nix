@@ -25,7 +25,10 @@
     pkgs = import inputs.nixpkgs {
       system = "aarch64-linux";
       config.allowUnfree = true;
-      overlays = [ inputs.toshy.overlays.default ];
+      overlays = with self.overlays; [
+        inputs.toshy.overlays.default
+        clapper
+      ];
     };
 
     modules = with self.homeModules; [

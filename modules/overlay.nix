@@ -2,7 +2,7 @@
 {
   flake.overlays = {
     # replace broken packages with stable versions
-    broken =
+    direnv =
       final: prev:
       (withSystem prev.stdenv.hostPlatform.system (
         { system, ... }:
@@ -10,12 +10,23 @@
           stable = import inputs.stable-nixpkgs {
             inherit system;
           };
-          nightly = import inputs.nightly-nixpkgs {
+        in
+        {
+          direnv = stable.direnv;
+        }
+      ));
+
+    clapper =
+      final: prev:
+      (withSystem prev.stdenv.hostPlatform.system (
+        { system, ... }:
+        let
+          stable = import inputs.stable-nixpkgs {
             inherit system;
           };
         in
         {
-          direnv = stable.direnv;
+          clapper = stable.clapper;
         }
       ));
   };

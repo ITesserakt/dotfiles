@@ -25,7 +25,11 @@
   flake.homeConfigurations.tesserakt = inputs.home-manager.lib.homeManagerConfiguration {
     pkgs = import inputs.nixpkgs {
       system = "x86_64-linux";
-      allowUnfree = true;
+      config.allowUnfree = true;
+
+      overlays = with self.overlays; [
+        clapper
+      ];
     };
 
     modules = with self.homeModules; [
