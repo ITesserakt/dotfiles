@@ -20,8 +20,8 @@
     #   capSysAdmin = true;
     # };
     services.open-webui = {
-      enable = true;
-      openFirewall = true;
+      enable = false;
+      openFirewall = false;
     };
   };
 }

@@ -53,7 +53,7 @@
       nushell
       nvs
       oh-my-posh
-      ollama
+      # ollama
       spotify
       stylix
       syncthing
