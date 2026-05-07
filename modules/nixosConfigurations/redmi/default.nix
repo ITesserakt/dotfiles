@@ -22,7 +22,7 @@
       steam
       stylix
       tailscale
-      zfs
+      # zfs
       zswap
     ];
   };
@@ -34,11 +34,12 @@
     
     system.stateVersion = "24.05";
 
-    boot.kernelPackages = pkgs.linuxPackages_6_18;
+    boot.kernelPackages = pkgs.linuxPackages_latest;
     boot.kernelModules = [
       "ddcci_backlight"
       "i2c-dev"
     ];
-    boot.supportedFilesystems = [ "zfs" ];
+    # boot.supportedFilesystems = [ "zfs" ];
+    # boot.zfs.forceImportRoot = false;
   };
 }
