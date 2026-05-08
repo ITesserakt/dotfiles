@@ -9,11 +9,12 @@
     }:
     let
       fenix = inputs.fenix.packages.${system};
-      mkRustDevShell = toolchain: {
+      mkRustDevShell = toolchain: overrides: {
         packages = [
           toolchain.toolchain
           pkgs.stdenv.cc
-        ];
+        ]
+        ++ (overrides.packages or [ ]);
 
         env = [
           {
@@ -24,14 +25,15 @@
             name = "RUST_TOOLCHAIN_PATH";
             value = "${toolchain.toolchain}";
           }
-        ];
+        ]
+        ++ (overrides.env or [ ]);
       };
     in
     {
-      devshells.rust = mkRustDevShell fenix.stable;
-      devshells.rust-nightly = mkRustDevShell fenix.latest;
+      devshells.rust = mkRustDevShell fenix.stable { };
+      devshells.rust-nightly = mkRustDevShell fenix.latest { };
 
-      devshells.rust-bevy = mkRustDevShell fenix.stable // {
+      devshells.rust-bevy = mkRustDevShell fenix.stable {
         packages = with pkgs; [
           pkg-config
           alsa-lib
