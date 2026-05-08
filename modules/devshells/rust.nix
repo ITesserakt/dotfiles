@@ -12,7 +12,7 @@
       mkRustDevShell = toolchain: overrides: {
         packages = [
           toolchain.toolchain
-          pkgs.stdenv.cc
+          pkgs.clangStdenv.cc
         ]
         ++ (overrides.packages or [ ]);
 
@@ -42,7 +42,6 @@
           libXcursor
           libXi
           wayland
-          clang
           mold
         ];
 
