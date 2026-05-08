@@ -12,6 +12,7 @@
       mkRustDevShell = toolchain: {
         packages = [
           toolchain.toolchain
+          pkgs.stdenv.cc
         ];
 
         env = [
