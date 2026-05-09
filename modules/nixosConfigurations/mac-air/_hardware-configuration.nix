@@ -44,7 +44,18 @@
     options = [ "subvol=@home" ];
   };
 
-  swapDevices = [ ];
+  fileSystems."/swap" = {
+    device = "/dev/disk/by-uuid/5fe8128f-165f-4e88-9188-823c61dca13e";
+    fsType = "btrfs";
+    options = [ "subvol=swap" ];
+  };
+
+  swapDevices = [
+    {
+      device = "/swap/swapfile";
+      size = 4 * 1024;
+    }
+  ];
 
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 }
