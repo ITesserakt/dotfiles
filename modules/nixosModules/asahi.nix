@@ -24,6 +24,9 @@
         asahi-btsync
       ];
 
+      nix.settings.substituters = [
+        "https://nixos-apple-silicon.cachix.org"
+      ];
       nix.settings.trusted-substituters = [
         "https://nixos-apple-silicon.cachix.org"
       ];

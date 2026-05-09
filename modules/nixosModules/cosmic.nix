@@ -7,6 +7,9 @@
 
     services.displayManager.cosmic-greeter.enable = true;
 
+    nix.settings.substituters = [
+      "https://cosmic.cachix.org/"
+    ];
     nix.settings.trusted-substituters = [
       "https://cosmic.cachix.org/"
     ];

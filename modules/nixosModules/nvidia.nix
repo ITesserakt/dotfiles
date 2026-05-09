@@ -26,6 +26,9 @@
       nixpkgs.config.nvidia.acceptLicense = true;
       nixpkgs.config.allowUnfree = lib.mkForce true;
 
+      nix.settings.substituters = [
+        "https://cache.nixos-cuda.org"
+      ];
       nix.settings.trusted-substituters = [
         "https://cache.nixos-cuda.org"
       ];

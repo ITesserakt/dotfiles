@@ -13,6 +13,9 @@
         withUWSM = false;
       };
 
+      nix.settings.substituters = [
+        "https://hyprland.cachix.org"
+      ];
       nix.settings.trusted-substituters = [
         "https://hyprland.cachix.org"
       ];
