@@ -1,19 +1,23 @@
-{ inputs, ... }:
 {
   perSystem =
     { pkgs, ... }:
-    with (pkgs // inputs.erosanix.packages.x86_64-linux // inputs.erosanix.lib.x86_64-linux);
+    let
+      mkWindowsApp = pkgs.callPackage ./_mkWindowsApp {
+        inherit (pkgs.lib) makeBinPath;
+      };
+      pname = "test-vkr";
+      src = builtins.fetchurl {
+        url = "http://vkr.bmstu.ru/TestVkr.exe";
+        sha256 = "sha256:0aryjr71cih4ix2vk4fk9fw6vass0jkbqbirq55dv6r4f9di9naw";
+      };
+    in
+    with pkgs;
     {
-      packages.test-vkr = mkWindowsApp rec {
+      packages.test-vkr = mkWindowsApp {
         wine = wineWow64Packages.stagingFull;
 
-        pname = "test-vkr";
+        inherit pname src;
         version = "1.0.0";
-
-        src = builtins.fetchurl {
-          url = "http://vkr.bmstu.ru/TestVkr.exe";
-          sha256 = "sha256:0aryjr71cih4ix2vk4fk9fw6vass0jkbqbirq55dv6r4f9di9naw";
-        };
 
         dontUnpack = true;
 
