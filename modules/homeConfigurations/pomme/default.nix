@@ -26,7 +26,6 @@
       system = "aarch64-linux";
       config.allowUnfree = true;
       overlays = with self.overlays; [
-        inputs.toshy.overlays.default
         clapper
       ];
     };

@@ -22,7 +22,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland/v0.53.1";
+      url = "github:hyprwm/Hyprland/v0.55.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-darwin = {
@@ -50,10 +50,10 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    toshy = {
-      url = "github:truongsinh/Toshy";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # toshy = {
+    #   url = "github:truongsinh/Toshy";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     vicinae = {
       url = "github:vicinaehq/vicinae";
       inputs.nixpkgs.follows = "nixpkgs";
