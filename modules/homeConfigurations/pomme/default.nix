@@ -75,6 +75,7 @@
         wayshot
         duckdb
         zotero
+        jetbrains-toolbox
       ];
     };
 }
