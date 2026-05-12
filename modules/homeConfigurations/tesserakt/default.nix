@@ -87,7 +87,7 @@
         kdePackages.wacomtablet
         graphite
         rnote
-        jetbrains.rust-rover
+        # jetbrains.rust-rover
         zotero
         typst
         distrobox
