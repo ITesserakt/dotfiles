@@ -3,7 +3,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     stable-nixpkgs.url = "github:NixOS/nixpkgs/871b9fd269ff6246794583ce4ee1031e1da71895";
     nightly-nixpkgs.url = "github:NixOS/nixpkgs/master";
-    
+
     import-tree.url = "github:vic/import-tree";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -24,6 +24,7 @@
     hyprland = {
       url = "github:hyprwm/Hyprland/v0.55.0";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.aquamarine.url = "github:hyprwm/aquamarine/d83c97f8f5c0aae553c1489c7d9eff3eadcadace";
     };
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin";
@@ -37,10 +38,7 @@
       url = "github:nix-community/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
     nvs.url = "github:jeff-hykin/nix_version_search_cli/59646623bfb379c09d06045e0aeefc3f614ddf22";
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -54,10 +52,7 @@
     #   url = "github:truongsinh/Toshy";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
-    vicinae = {
-      url = "github:vicinaehq/vicinae";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    vicinae.url = "github:vicinaehq/vicinae";
     wayshot = {
       url = "github:waycrate/wayshot";
       flake = false;

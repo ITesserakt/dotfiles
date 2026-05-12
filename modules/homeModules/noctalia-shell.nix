@@ -1,210 +1,230 @@
-{ inputs, ... }: {
-  flake.homeModules.noctalia-shell = { config, pkgs, lib, ... }: {
-    imports = [
-      inputs.noctalia.homeModules.default
-    ];
+{ inputs, ... }:
+{
+  flake.nixosModules.extra-substituters = {
+    nix.settings = {
+      extra-substituters = [ "https://noctalia.cachix.org" ];
+      extra-trusted-public-keys = [
+        "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+      ];
+    };
+  };
 
-    home.packages = with pkgs; [
-      kdePackages.qttools
-      kdePackages.krdp
-    ] ++ lib.optionals pkgs.stdenv.isx86_64 [
-      pkgs.gpu-screen-recorder
-    ];
-    
-    programs.noctalia-shell = {
-      enable = true;
-      plugins = {
-        sources = [
-          {
-            enabled = true;
-            name = "Official Noctalia Plugins";
-            url = "https://github.com/noctalia-dev/noctalia-plugins";
-          }
+  flake.homeModules.noctalia-shell =
+    {
+      config,
+      pkgs,
+      lib,
+      ...
+    }:
+    {
+      imports = [
+        inputs.noctalia.homeModules.default
+      ];
+
+      home.packages =
+        with pkgs;
+        [
+          kdePackages.qttools
+          kdePackages.krdp
+        ]
+        ++ lib.optionals pkgs.stdenv.isx86_64 [
+          pkgs.gpu-screen-recorder
         ];
-        states = builtins.listToAttrs (
-          map
-            (name: {
-              inherit name;
-              value = {
-                enabled = true;
-                sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-              };
-            })
-            [
-              "catwalk"
-              "mini-docker"
-              "screen-recorder"
-              "kde-connect"
-              "workspace-overview"
-            ]
-        );
-        version = 1;
-      };
 
-      pluginSettings = {
-        catwalk = {
-          minimumThreshold = 10;
-          hideBackground = true;
-        };
-      };
-
-      settings = {
-        bar.showCapsule = false;
-        bar.marginVertical = 5;
-        bar.marginHorizontal = 11;
-        bar.widgets = {
-          left = [
+      programs.noctalia-shell = {
+        enable = true;
+        plugins = {
+          sources = [
             {
-              id = "Workspace";
-              labelMode = "name";
-            }
-            {
-              id = "SystemMonitor";
-              diskPath = "/";
+              enabled = true;
+              name = "Official Noctalia Plugins";
+              url = "https://github.com/noctalia-dev/noctalia-plugins";
             }
           ];
-          center = [
-            {
-              id = "plugin:rss-feed";
-            }
-            {
-              id = "plugin:catwalk";
-            }
-            {
-              id = "Clock";
-            }
-            {
-              id = "MediaMini";
-            }
-            {
-              id = "WallpaperSelector";
-            }
-          ];
-          right = [
-            {
-              id = "Tray";
-            }
-            {
-              id = "plugin:kde-connect";
-            }
-            {
-              id = "KeyboardLayout";
-              displayMode = "forceOpen";
-            }
-            {
-              id = "Battery";
-              displayMode = "graphic";
-            }
-            {
-              id = "plugin:screen-recorder";
-            }
-            {
-              id = "Volume";
-              displayMode = "onhover";
-            }
-            {
-              id = "Brightness";
-              displayMode = "alwaysShow";
-            }
-            {
-              id = "plugin:mini-docker";
-            }
-            {
-              id = "NotificationHistory";
-            }
-            {
-              id = "ControlCenter";
-            }
-          ];
+          states = builtins.listToAttrs (
+            map
+              (name: {
+                inherit name;
+                value = {
+                  enabled = true;
+                  sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+                };
+              })
+              [
+                "catwalk"
+                "mini-docker"
+                "screen-recorder"
+                "kde-connect"
+                "workspace-overview"
+              ]
+          );
+          version = 1;
         };
 
-        general = {
-          dimmerOpacity = "0";
-          showScreenCorners = true;
-          lockOnSuspend = true;
-          lockScreenAnimations = true;
-          enableLockScreenMediaControls = true;
-          passwordChars = true;
-          enableShadows = false;
-          # shadowDirection = "center";
-          telemetryEnabled = false;
-          clockStyle = "analog";
+        pluginSettings = {
+          catwalk = {
+            minimumThreshold = 10;
+            hideBackground = true;
+          };
         };
 
-        ui.settingsPanelMode = "centered";
-        ui.boxBorderEnabled = true;
+        settings = {
+          bar.showCapsule = false;
+          bar.marginVertical = 5;
+          bar.marginHorizontal = 11;
+          bar.widgets = {
+            left = [
+              {
+                id = "Workspace";
+                labelMode = "name";
+              }
+              {
+                id = "SystemMonitor";
+                diskPath = "/";
+              }
+            ];
+            center = [
+              {
+                id = "plugin:rss-feed";
+              }
+              {
+                id = "plugin:catwalk";
+              }
+              {
+                id = "Clock";
+              }
+              {
+                id = "MediaMini";
+              }
+              {
+                id = "WallpaperSelector";
+              }
+            ];
+            right = [
+              {
+                id = "Tray";
+              }
+              {
+                id = "plugin:kde-connect";
+              }
+              {
+                id = "KeyboardLayout";
+                displayMode = "forceOpen";
+              }
+              {
+                id = "Battery";
+                displayMode = "graphic";
+              }
+              {
+                id = "plugin:screen-recorder";
+              }
+              {
+                id = "Volume";
+                displayMode = "onhover";
+              }
+              {
+                id = "Brightness";
+                displayMode = "alwaysShow";
+              }
+              {
+                id = "plugin:mini-docker";
+              }
+              {
+                id = "NotificationHistory";
+              }
+              {
+                id = "ControlCenter";
+              }
+            ];
+          };
 
-        location.name = "Moscow";
-        location.weatherShowEffects = false;
+          general = {
+            dimmerOpacity = "0";
+            showScreenCorners = true;
+            lockOnSuspend = true;
+            lockScreenAnimations = true;
+            enableLockScreenMediaControls = true;
+            passwordChars = true;
+            enableShadows = false;
+            # shadowDirection = "center";
+            telemetryEnabled = false;
+            clockStyle = "analog";
+          };
 
-        wallpaper = {
-          directory = "${config.home.homeDirectory}/Pictures/Wallpapers";
-          useWallhaven = true;
-          wallhavenSorting = "toplist";
-        };
+          ui.settingsPanelMode = "centered";
+          ui.boxBorderEnabled = true;
 
-        controlCenter.shortcuts = {
-          left = [
-            {
-              id = "Network";
-            }
-            {
-              id = "Bluetooth";
-            }
-          ];
-          right = [
-            {
-              id = "Notifications";
-            }
-            {
-              id = "KeepAwake";
-            }
-          ];
-        };
+          location.name = "Moscow";
+          location.weatherShowEffects = false;
 
-        dock.enabled = false;
+          wallpaper = {
+            directory = "${config.home.homeDirectory}/Pictures/Wallpapers";
+            useWallhaven = true;
+            wallhavenSorting = "toplist";
+          };
 
-        network.bluetoothRssiPollingEnabled = true;
+          controlCenter.shortcuts = {
+            left = [
+              {
+                id = "Network";
+              }
+              {
+                id = "Bluetooth";
+              }
+            ];
+            right = [
+              {
+                id = "Notifications";
+              }
+              {
+                id = "KeepAwake";
+              }
+            ];
+          };
 
-        notifications.enableKeyboardLayoutToast = false;
+          dock.enabled = false;
 
-        audio.preferredPlayer = "spotify";
+          network.bluetoothRssiPollingEnabled = true;
 
-        desktopWidgets = {
-          enabled = true;
-          gridSnap = true;
-          monitorWidgets = [
-            {
-              name = "eDP-1";
-              widgets = [
-                {
-                  id = "MediaPlayer";
-                  roundedCorners = true;
-                  hideMode = "hidden";
-                  scale = 1.4;
-                  showAlbumArt = true;
-                  showBackground = false;
-                  showButtons = true;
-                  showVisualizer = false;
-                  x = 32;
-                  y = 1120;
-                }
-                # {
-                #   id = "SystemStat";
-                #   diskPath = "/";
-                #   layout = "side";
-                #   roundedCorners = true;
-                #   scale = 1;
-                #   showBackground = true;
-                #   statType = "CPU";
-                #   x = 1760;
-                #   y = 1120;
-                # }
-              ];
-            }
-          ];
+          notifications.enableKeyboardLayoutToast = false;
+
+          audio.preferredPlayer = "spotify";
+
+          desktopWidgets = {
+            enabled = true;
+            gridSnap = true;
+            monitorWidgets = [
+              {
+                name = "eDP-1";
+                widgets = [
+                  {
+                    id = "MediaPlayer";
+                    roundedCorners = true;
+                    hideMode = "hidden";
+                    scale = 1.4;
+                    showAlbumArt = true;
+                    showBackground = false;
+                    showButtons = true;
+                    showVisualizer = false;
+                    x = 32;
+                    y = 1120;
+                  }
+                  # {
+                  #   id = "SystemStat";
+                  #   diskPath = "/";
+                  #   layout = "side";
+                  #   roundedCorners = true;
+                  #   scale = 1;
+                  #   showBackground = true;
+                  #   statType = "CPU";
+                  #   x = 1760;
+                  #   y = 1120;
+                  # }
+                ];
+              }
+            ];
+          };
         };
       };
     };
-  };
 }

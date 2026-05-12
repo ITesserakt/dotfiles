@@ -43,10 +43,6 @@
         graphics = {
           enable = true;
           enable32Bit = true;
-          extraPackages = with pkgs; [
-            libvdpau-va-gl
-            libvpx
-          ];
         };
         bluetooth = {
           enable = true;

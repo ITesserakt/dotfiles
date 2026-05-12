@@ -9,6 +9,7 @@
       btrfs
       clight
       docker
+      extra-substituters
       filesystem
       gnome
       grub

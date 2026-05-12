@@ -6,6 +6,7 @@
       base
       beesd
       btrfs
+      extra-substituters
       filesystem
       gnome
       hyprland
