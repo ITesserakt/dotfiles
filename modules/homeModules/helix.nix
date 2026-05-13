@@ -184,6 +184,7 @@
           texlab
           lldb
           vscode-langservers-extracted
+          lua-language-server
         ];
       };
     };
