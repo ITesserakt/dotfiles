@@ -27,6 +27,7 @@
       config.allowUnfree = true;
       overlays = with self.overlays; [
         clapper
+        libreoffice
       ];
     };
 
