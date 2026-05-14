@@ -17,10 +17,10 @@
       stylix.targets.zen-browser.enable = false;
 
       wayland.windowManager.hyprland.settings = {
-        input.touchpad = {
+        config.input.touchpad = {
           disable_while_typing = true;
           clickfinger_behavior = true;
-          tap-to-click = false;
+          tap_to_click = false;
         };
       };
 
