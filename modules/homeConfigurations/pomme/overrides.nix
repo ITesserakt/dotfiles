@@ -56,7 +56,7 @@
           }
           {
             id = "MediaMini";
-            showVisualizer = true;
+            showVisualizer = false;
             showProgressRing = false;
             showAlbumArt = false;
           }
