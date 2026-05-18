@@ -4,6 +4,7 @@
     modules = with self.nixosModules; [
       asahi
       base
+      self.modules.nixos.box64-binfmt
       beesd
       btrfs
       driftwm
@@ -41,7 +42,11 @@
       boot.kernelParams = [
         "appledrm.show_notch=1"
       ];
+
       boot.supportedFilesystems = [ "apfs" ];
+      boot.binfmt.emulatedSystems = [ "x86_64-linux" ];
+      nix.settings.extra-platforms = [ "x86_64-linux" ];
+      box64-binfmt.enable = true;
 
       # specialisation.fairydust.configuration.boot.kernelPackages = lib.mkForce (
       #   config.hardware.asahi.pkgs.linuxPackagesFor (

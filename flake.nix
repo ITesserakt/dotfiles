@@ -38,6 +38,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-apple-silicon.url = "github:nix-community/nixos-apple-silicon";
+    nixos-box64-binfmt = {
+      url = "github:Yeshey/nixos-box64-binfmt";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     nvs.url = "github:jeff-hykin/nix_version_search_cli/59646623bfb379c09d06045e0aeefc3f614ddf22";
     spicetify-nix = {
