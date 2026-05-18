@@ -8,7 +8,7 @@
       pname = "test-vkr";
       src = builtins.fetchurl {
         url = "http://vkr.bmstu.ru/TestVkr.exe";
-        sha256 = "sha256:0aryjr71cih4ix2vk4fk9fw6vass0jkbqbirq55dv6r4f9di9naw";
+        sha256 = "sha256:1jxq12hj8410wsa673vb3snallxwyx025snj2dlikvn7qkmkrd0b";
       };
     in
     with pkgs;
