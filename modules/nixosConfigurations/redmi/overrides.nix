@@ -2,6 +2,9 @@
   flake.nixosModules.redmi =
     { pkgs, lib, ... }:
     {
+      boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+      nix.settings.extra-platforms = [ "aarch64-linux" ];
+      
       networking.hostId = "14ea3ee7";
       networking.hostName = "redmi";
 

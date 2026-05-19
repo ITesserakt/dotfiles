@@ -93,6 +93,7 @@
         distrobox
         config.flake.packages.${pkgs.stdenv.hostPlatform.system}.test-vkr
         wayshot
+        jetbrains-toolbox
       ];
     };
 }
