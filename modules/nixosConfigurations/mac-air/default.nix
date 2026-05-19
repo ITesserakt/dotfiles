@@ -35,7 +35,7 @@
       boot.kernelParams = [
         "appledrm.show_notch=1"
       ];
-      boot.supportedFilesystems = [ "apfs" ];
+      # boot.supportedFilesystems = [ "apfs" ];
 
       boot.kernelPackages =
         let
@@ -49,6 +49,7 @@
         peripheralFirmwareDirectory = ./firmware;
         extractPeripheralFirmware = false;
       };
+      hardware.sensor.iio.enable = true;
 
       zramSwap = {
         enable = true;
