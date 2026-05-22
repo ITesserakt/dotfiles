@@ -15,6 +15,7 @@
       grub
       hyprland
       kde-connect
+      nebula
       nh
       nix
       nvidia
