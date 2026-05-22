@@ -11,6 +11,7 @@
       gnome
       hyprland
       mac-air
+      nebula
       nh
       nix
       pomme
