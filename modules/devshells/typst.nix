@@ -45,7 +45,7 @@
             owner = "ITesserakt";
             repo = "typst-bmstu-thesis";
             rev = "master";
-            sha256 = "sha256-m6mOIfVghLrenlsvMeXCfdPXdCvJJHyzWN2bDYtdHKg=";
+            sha256 = "sha256-WDeiSgKwZTm3zWCYzx3IMwpQTbnZZgbsvH6nciRwee8=";
           };
 
           mkTypstPackage = name: input: {
