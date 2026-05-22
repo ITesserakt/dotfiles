@@ -33,5 +33,11 @@
         libvdpau-va-gl
         libvpx
       ];
+
+      services.nebula.networks."mesh" = {
+        ca = "/etc/nebula/ca.crt";
+        cert = "/etc/nebula/redmi.crt";
+        key = "/etc/nebula/redmi.key";
+      };
     };
 }
