@@ -76,7 +76,7 @@
         wayshot
         duckdb
         zotero
-        jetbrains-toolbox
+        jetbrains.rust-rover
       ];
     };
 }

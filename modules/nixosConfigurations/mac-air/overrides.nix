@@ -7,11 +7,5 @@
     services.keyd.keyboards.default.ids = [ "05ac:0351:c0152ca3" ];
 
     boot.loader.grub.efiSupport = lib.mkForce false;
-
-    services.nebula.networks."mesh" = {
-      ca = "/etc/nebula/ca.crt";
-      cert = "/etc/nebula/mac-air.crt";
-      key = "/etc/nebula/mac-air.key";
-    };
   };
 }
