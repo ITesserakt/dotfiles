@@ -42,7 +42,7 @@
       ];
       # boot.supportedFilesystems = [ "apfs" ];
 
-      boot.kernelPackages = lib.mkForce (
+      specialisation.fairydust.configuration.boot.kernelPackages = lib.mkForce (
         config.hardware.asahi.pkgs.linuxPackagesFor (
           config.hardware.asahi.pkgs.linux-asahi.kernel.overrideAttrs {
             src = pkgs.fetchFromGitHub {
