@@ -44,8 +44,8 @@
           typst-bmstu-thesis = pkgs.fetchFromGitHub {
             owner = "ITesserakt";
             repo = "typst-bmstu-thesis";
-            rev = "master";
-            sha256 = "sha256-WDeiSgKwZTm3zWCYzx3IMwpQTbnZZgbsvH6nciRwee8=";
+            rev = "95952206ea8bbc4400738023fb6cd913524438f2";
+            sha256 = "sha256-2J0P2EHPTHGMjzA0Pf+MHaV+Rb0EtuxBXGGLOu6P7yk=";
           };
 
           mkTypstPackage = name: input: {
