@@ -28,7 +28,6 @@
       overlays = with self.overlays; [
         clapper
         libreoffice
-        widevine
       ];
     };
 
