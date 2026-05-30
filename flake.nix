@@ -22,9 +22,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland/v0.55.0";
+      url = "github:hyprwm/Hyprland/v0.55.2";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.aquamarine.url = "github:hyprwm/aquamarine/d83c97f8f5c0aae553c1489c7d9eff3eadcadace";
+      # working aquamarine 0.10.0:
+      # inputs.aquamarine.url = "github:hyprwm/aquamarine/d83c97f8f5c0aae553c1489c7d9eff3eadcadace";
+      # working aquamarine 0.11.0:
+      inputs.aquamarine.url = "github:hyprwm/aquamarine/ab2b0af63fbc9fb779d684f19149b790978be8a8";
     };
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin";
@@ -34,10 +37,7 @@
       url = "github:nix-community/nix-index";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-apple-silicon = {
-      url = "github:nix-community/nixos-apple-silicon";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixos-apple-silicon.url = "github:nix-community/nixos-apple-silicon";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     nvs.url = "github:jeff-hykin/nix_version_search_cli/59646623bfb379c09d06045e0aeefc3f614ddf22";
     spicetify-nix = {

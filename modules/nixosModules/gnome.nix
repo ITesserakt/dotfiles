@@ -4,7 +4,6 @@
 
     services.displayManager.gdm = {
       enable = true;
-      wayland = true;
     };
 
     environment.gnome.excludePackages = with pkgs; [
