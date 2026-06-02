@@ -53,10 +53,6 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
     vicinae.url = "github:vicinaehq/vicinae";
-    wayshot = {
-      url = "github:waycrate/wayshot";
-      flake = false;
-    };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
