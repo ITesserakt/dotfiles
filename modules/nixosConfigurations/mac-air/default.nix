@@ -6,6 +6,7 @@
       base
       beesd
       btrfs
+      driftwm
       extra-substituters
       filesystem
       hyprland
