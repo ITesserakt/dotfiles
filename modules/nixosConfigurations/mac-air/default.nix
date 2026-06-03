@@ -41,7 +41,7 @@
       boot.kernelParams = [
         "appledrm.show_notch=1"
       ];
-      # boot.supportedFilesystems = [ "apfs" ];
+      boot.supportedFilesystems = [ "apfs" ];
 
       # specialisation.fairydust.configuration.boot.kernelPackages = lib.mkForce (
       #   config.hardware.asahi.pkgs.linuxPackagesFor (

@@ -39,6 +39,9 @@
           name = "Bibata-Modern-Classic";
           size = 24;
         };
+
+        # kmscon got removed
+        targets.kmscon.enable = false;
       };
     };
 }
