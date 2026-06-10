@@ -31,7 +31,7 @@
     in
     {
       devshells.rust = mkRustDevShell fenix.stable { };
-      devshells.rust-nightly = mkRustDevShell fenix.latest { };
+      devshells.rust-nightly = mkRustDevShell fenix.complete { };
 
       devshells.rust-bevy = mkRustDevShell fenix.stable {
         packages = with pkgs; [
