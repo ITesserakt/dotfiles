@@ -44,9 +44,9 @@
       ];
 
       boot.supportedFilesystems = [ "apfs" ];
-      boot.binfmt.emulatedSystems = [ "x86_64-linux" ];
-      nix.settings.extra-platforms = [ "x86_64-linux" ];
-      box64-binfmt.enable = true;
+      # boot.binfmt.emulatedSystems = [ "x86_64-linux" ];
+      # nix.settings.extra-platforms = [ "x86_64-linux" ];
+      # box64-binfmt.enable = false;
 
       # specialisation.fairydust.configuration.boot.kernelPackages = lib.mkForce (
       #   config.hardware.asahi.pkgs.linuxPackagesFor (
