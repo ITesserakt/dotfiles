@@ -27,7 +27,8 @@
       # working aquamarine 0.10.0:
       # inputs.aquamarine.url = "github:hyprwm/aquamarine/d83c97f8f5c0aae553c1489c7d9eff3eadcadace";
       # working aquamarine 0.11.0:
-      inputs.aquamarine.url = "github:hyprwm/aquamarine/ab2b0af63fbc9fb779d684f19149b790978be8a8";
+      # inputs.aquamarine.url = "github:hyprwm/aquamarine/ab2b0af63fbc9fb779d684f19149b790978be8a8";
+      inputs.aquamarine.url = "github:hyprwm/aquamarine/v0.12.0";
     };
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin";
@@ -42,7 +43,7 @@
       url = "github:Yeshey/nixos-box64-binfmt";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    noctalia.url = "github:noctalia-dev/noctalia-shell";
+    noctalia.url = "github:noctalia-dev/noctalia-shell/legacy-v4";
     nvs.url = "github:jeff-hykin/nix_version_search_cli/59646623bfb379c09d06045e0aeefc3f614ddf22";
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
