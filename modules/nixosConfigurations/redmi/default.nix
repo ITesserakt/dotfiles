@@ -11,7 +11,7 @@
       docker
       extra-substituters
       filesystem
-      gnome
+      # gnome
       grub
       hyprland
       kde-connect
@@ -21,6 +21,7 @@
       nvidia
       plymouth
       redmi
+      regreet
       steam
       stylix
       tailscale
