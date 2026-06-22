@@ -1,6 +1,6 @@
 {
   flake.homeModules.base =
-    { pkgs, lib, config, ... }:
+    { pkgs, lib, ... }:
     {
       home.packages = with pkgs; [
         nixpkgs-fmt
@@ -25,8 +25,6 @@
         terminal-exec.enable = true;
         userDirs.setSessionVariables = true;
       };
-
-      gtk.gtk4.theme = config.gtk.theme;
 
       services.ssh-agent.enable = true;
 
