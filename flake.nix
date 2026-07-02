@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    stable-nixpkgs.url = "github:NixOS/nixpkgs/871b9fd269ff6246794583ce4ee1031e1da71895";
+    stable-nixpkgs.url = "github:NixOS/nixpkgs/95ca1e203c0750115fd4a6f17d5a245dfe6b1edd";
     nightly-nixpkgs.url = "github:NixOS/nixpkgs/master";
 
     import-tree.url = "github:vic/import-tree";
@@ -22,13 +22,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland/v0.55.2";
+      url = "github:hyprwm/Hyprland/v0.55.4";
       inputs.nixpkgs.follows = "nixpkgs";
       # working aquamarine 0.10.0:
       # inputs.aquamarine.url = "github:hyprwm/aquamarine/d83c97f8f5c0aae553c1489c7d9eff3eadcadace";
       # working aquamarine 0.11.0:
       # inputs.aquamarine.url = "github:hyprwm/aquamarine/ab2b0af63fbc9fb779d684f19149b790978be8a8";
-      inputs.aquamarine.url = "github:hyprwm/aquamarine/v0.12.0";
+      # inputs.aquamarine.url = "github:hyprwm/aquamarine/v0.12.0";
     };
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin";
