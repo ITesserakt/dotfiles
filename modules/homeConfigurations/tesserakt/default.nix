@@ -49,7 +49,8 @@
       kitty
       nix-index
       nix-search-tv
-      noctalia-shell
+      # noctalia-shell
+      noctalia-shell_v5
       nushell
       nvs
       oh-my-posh

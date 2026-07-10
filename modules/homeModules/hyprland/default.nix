@@ -34,7 +34,7 @@
         };
       };
 
-      services.hyprpolkitagent.enable = true;
+      services.hyprpolkitagent.enable = false;
 
       wayland.windowManager.hyprland = {
         enable = true;
