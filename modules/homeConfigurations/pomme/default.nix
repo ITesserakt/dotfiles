@@ -41,12 +41,11 @@
       git
       gnome
       helix
-      hypridle
       hyprland
       kitty
       nix-index
       nix-search-tv
-      noctalia-shell
+      noctalia-shell_v5
       nushell
       oh-my-posh
       pomme
