@@ -52,36 +52,11 @@
             wpctl = "${pkgs.wireplumber}/bin/wpctl",
             brightnessctl = "${lib.getExe pkgs.brightnessctl}",
             playerctl = "${lib.getExe pkgs.playerctl}",
+            notify = "${lib.getExe pkgs.libnotify}"
           }
           
           require("dynamic")
         '';
-        settings.config =
-          let
-            colors = config.stylix.base16.mkSchemeAttrs config.stylix.base16Scheme;
-            rgb = color: "rgb(${color})";
-            rgba = color: alpha: "rgba(${color}${alpha})";
-          in
-          {
-            # FIXME: stylix module does not put those attrs inside `config`.
-            decoration.shadow.color = rgba colors.base00 "99";
-            general = {
-              "col.active_border" = rgb colors.base0D;
-              "col.inactive_border" = rgb colors.base03;
-            };
-            group = {
-              "col.border_inactive" = rgb colors.base03;
-              "col.border_active" = rgb colors.base0D;
-              "col.border_locked_active" = rgb colors.base0C;
-
-              groupbar = {
-                text_color = rgb colors.base05;
-                "col.active" = rgb colors.base0D;
-                "col.inactive" = rgb colors.base03;
-              };
-            };
-            misc.background_color = rgb colors.base00;
-          };
         settings.bind =
           let
             mkBind = bind: action: mkBindWithOpts bind action { };

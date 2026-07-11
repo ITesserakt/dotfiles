@@ -38,8 +38,6 @@
           dark = "Nordzy-dark";
           light = "Nordzy";
         };
-
-        targets.hyprland.colors.enable = false;
       };
     };
 }
