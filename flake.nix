@@ -22,13 +22,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland/v0.55.4";
+      url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
       # working aquamarine 0.10.0:
       # inputs.aquamarine.url = "github:hyprwm/aquamarine/d83c97f8f5c0aae553c1489c7d9eff3eadcadace";
       # working aquamarine 0.11.0:
       # inputs.aquamarine.url = "github:hyprwm/aquamarine/ab2b0af63fbc9fb779d684f19149b790978be8a8";
       # inputs.aquamarine.url = "github:hyprwm/aquamarine/v0.12.0";
+    };
+    microvm = {
+      url = "github:microvm-nix/microvm.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin";

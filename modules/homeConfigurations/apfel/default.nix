@@ -18,7 +18,7 @@
       system = "aarch64-darwin";
       allowUnfree = true;
       overlays = [
-        self.overlays.direnv
+        (self.meta.mkOverlay ({ stable, ... }: { kitty = stable.kitty; }))
       ];
     };
 
@@ -62,6 +62,8 @@
         obsidian
         raycast
         zotero
+        typst
+        tinymist
       ];
 
       home.sessionVariables = {
