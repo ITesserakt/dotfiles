@@ -40,6 +40,7 @@
       spotify
       stylix
       syncthing
+      vicinae
       yazi
       zen-browser
       zoxide
@@ -60,10 +61,7 @@
 
       home.packages = with pkgs; [
         obsidian
-        raycast
         zotero
-        typst
-        tinymist
       ];
 
       home.sessionVariables = {
