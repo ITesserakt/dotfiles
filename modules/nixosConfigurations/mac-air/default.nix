@@ -7,6 +7,7 @@
 {
   flake.nixosConfigurations.mac-air = lib.nixosSystem {
     modules = with self.nixosModules; [
+      appimage
       asahi
       base
       # self.modules.nixos.box64-binfmt
