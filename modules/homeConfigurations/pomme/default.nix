@@ -17,18 +17,16 @@
           "video"
           "uinput"
         ];
-        shell = pkgs.nushell;
+        shell = pkgs.fish;
       };
+
+      programs.fish.enable = true;
     };
 
   flake.homeConfigurations.pomme = inputs.home-manager.lib.homeManagerConfiguration {
     pkgs = import inputs.nixpkgs {
       system = "aarch64-linux";
       config.allowUnfree = true;
-      overlays = with self.overlays; [
-        clapper
-        libreoffice
-      ];
     };
 
     modules = with self.homeModules; [
@@ -38,6 +36,7 @@
       carapace
       direnv
       eza
+      fish
       git
       gnome
       helix

@@ -7,10 +7,6 @@
       ...
     }:
     {
-      programs.nushell.shellAliases = {
-        micro = lib.getExe pkgs.helix;
-      };
-
       programs.eza.enableNushellIntegration = true;
 
       programs.git.settings.user = {
@@ -56,76 +52,113 @@
         };
       };
 
-      programs.noctalia-shell.settings = {
-        bar.barType = lib.mkForce "floating";
-        bar.density = "comfortable";
-        bar.contentPadding = 10;
-        bar.widgets.center = lib.mkForce [ ];
-        bar.widgets.left = lib.mkForce [
-          {
-            id = "plugin:workspace-overview";
+      programs.noctalia.settings = lib.mapAttrsRecursive (_: value: lib.mkForce value) {
+        bar.default = {
+          center = [ ];
+          end = [
+            "media"
+            "tray"
+            "keyboard_layout"
+            "battery"
+            "volume"
+            "brightness"
+            "notifications"
+            "control-center"
+            "clock"
+          ];
+          margin_ends = 12;
+          thickness = 36;
+          background_opacity = 0.6;
+          margin_edge = 6;
+          widget_spacing = 15;
+        };
 
-          }
-          {
-            id = "Workspace";
-            labelMode = "name";
-          }
-          {
-            id = "SystemMonitor";
-            diskPath = "/";
-            compactMode = false;
-            showCpuTemp = false;
-            useMonospaceFont = false;
-          }
-        ];
-        bar.widgets.right = lib.mkForce [
-          {
-            id = "Tray";
-            colorizeIcons = false;
-            drawerEnabled = false;
-            hidePassive = false;
-            chevronColor = "none";
-          }
-          {
-            id = "MediaMini";
-            showVisualizer = false;
-            showProgressRing = false;
-            showAlbumArt = false;
-          }
-          {
-            id = "KeyboardLayout";
-            displayMode = "forceOpen";
-          }
-          {
-            id = "Battery";
-            displayMode = "graphic";
-            showNoctaliaPerformance = true;
-            showPowerProfiles = true;
-          }
-          {
-            id = "Volume";
-            displayMode = "onhover";
-          }
-          {
-            id = "Brightness";
-            displayMode = "alwaysShow";
-          }
-          {
-            id = "NotificationHistory";
-          }
-          {
-            id = "ControlCenter";
-          }
-          {
-            id = "Clock";
-          }
-        ];
+        lockscreen_widgets.widget = {
+          "lockscreen-login-box@eDP-1".cx = 960.0;
+          "lockscreen-widget-0000000000000001".cx = 960.0;
+          "lockscreen-widget-0000000000000001".settings.clock_style = "analog";
+          "lockscreen-widget-0000000000000002".cx = 1632.0;
+          "lockscreen-widget-0000000000000003".cx = 1632.0;
+        };
 
-        ui.panelBackgroundOpacity = lib.mkForce 0.6;
+        widget.clock.anchor = false;
+        widget.clock.format = "{:%H:%M %a, %b. %d}";
 
-        general.forceBlackScreenCorners = true;
+        widget.media.hide_when_no_media = true;
 
-        idle.enabled = true;
+        widget.temp.stat = "cpu_usage";
       };
+
+      # programs.noctalia-shell.settings = {
+      #   bar.barType = lib.mkForce "floating";
+      #   bar.density = "comfortable";
+      #   bar.contentPadding = 10;
+      #   bar.widgets.center = lib.mkForce [ ];
+      #   bar.widgets.left = lib.mkForce [
+      #     {
+      #       id = "plugin:workspace-overview";
+
+      #     }
+      #     {
+      #       id = "Workspace";
+      #       labelMode = "name";
+      #     }
+      #     {
+      #       id = "SystemMonitor";
+      #       diskPath = "/";
+      #       compactMode = false;
+      #       showCpuTemp = false;
+      #       useMonospaceFont = false;
+      #     }
+      #   ];
+      #   bar.widgets.right = lib.mkForce [
+      #     {
+      #       id = "Tray";
+      #       colorizeIcons = false;
+      #       drawerEnabled = false;
+      #       hidePassive = false;
+      #       chevronColor = "none";
+      #     }
+      #     {
+      #       id = "MediaMini";
+      #       showVisualizer = false;
+      #       showProgressRing = false;
+      #       showAlbumArt = false;
+      #     }
+      #     {
+      #       id = "KeyboardLayout";
+      #       displayMode = "forceOpen";
+      #     }
+      #     {
+      #       id = "Battery";
+      #       displayMode = "graphic";
+      #       showNoctaliaPerformance = true;
+      #       showPowerProfiles = true;
+      #     }
+      #     {
+      #       id = "Volume";
+      #       displayMode = "onhover";
+      #     }
+      #     {
+      #       id = "Brightness";
+      #       displayMode = "alwaysShow";
+      #     }
+      #     {
+      #       id = "NotificationHistory";
+      #     }
+      #     {
+      #       id = "ControlCenter";
+      #     }
+      #     {
+      #       id = "Clock";
+      #     }
+      #   ];
+
+      #   ui.panelBackgroundOpacity = lib.mkForce 0.6;
+
+      #   general.forceBlackScreenCorners = true;
+
+      #   idle.enabled = true;
+      # };
     };
 }

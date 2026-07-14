@@ -1,4 +1,9 @@
-{ self, lib, ... }:
+{
+  self,
+  inputs,
+  lib,
+  ...
+}:
 {
   flake.nixosConfigurations.mac-air = lib.nixosSystem {
     modules = with self.nixosModules; [

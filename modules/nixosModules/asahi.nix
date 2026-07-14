@@ -7,6 +7,7 @@
         inputs.nixos-apple-silicon.nixosModules.default
       ];
 
+      hardware.asahi.enable = true;
       hardware.asahi.setupAsahiSound = true;
       hardware.graphics.enable32Bit = lib.mkForce false;
 
