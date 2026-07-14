@@ -10,6 +10,7 @@
           "input"
           "video"
           "networkmanager"
+          "i2c"
         ];
         shell = pkgs.fish;
       };

@@ -8,6 +8,7 @@
       beesd
       btrfs
       clight
+      ddcci
       docker
       extra-substituters
       filesystem
@@ -29,19 +30,11 @@
     ];
   };
 
-  flake.nixosModules.redmi = { pkgs, ... }: {
+  flake.nixosModules.redmi = {
     imports = [
       ./_hardware-configuration.nix
     ];
     
     system.stateVersion = "24.05";
-
-    boot.kernelPackages = pkgs.linuxPackages_latest;
-    boot.kernelModules = [
-      "ddcci_backlight"
-      "i2c-dev"
-    ];
-    # boot.supportedFilesystems = [ "zfs" ];
-    # boot.zfs.forceImportRoot = false;
   };
 }

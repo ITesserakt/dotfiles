@@ -17,6 +17,7 @@
           "input"
           "video"
           "docker"
+          "i2c"
         ];
         shell = pkgs.nushell;
       };
