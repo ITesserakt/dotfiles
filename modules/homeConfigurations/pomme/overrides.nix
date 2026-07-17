@@ -52,6 +52,33 @@
         };
       };
 
+      services.wluma.settings = {
+        keyboard = [
+          {
+            name = "kbd";
+            path = "/sys/class/leds/kbd_backlight";
+          }
+        ];
+
+        output.backlight = [
+          {
+            name = "eDP-1";
+            path = "/sys/class/backlight/apple-panel-bl";
+            capturer = "none";
+          }
+        ];
+
+        als.iio.path = "/sys/bus/iio/devices";
+        als.iio.thresholds = {
+          "0" = "night";
+          "20" = "dark";
+          "80" = "dim";
+          "250" = "normal";
+          "500" = "bright";
+          "800" = "outdoors";
+        };
+      };
+
       programs.noctalia.settings = lib.mapAttrsRecursive (_: value: lib.mkForce value) {
         bar.default = {
           center = [ ];
@@ -82,7 +109,7 @@
         };
 
         widget.clock.anchor = false;
-        widget.clock.format = "{:%H:%M %a, %b. %d}";
+        widget.clock.format = "{:%H:%M %a; %b. %d}";
 
         widget.media.hide_when_no_media = true;
 

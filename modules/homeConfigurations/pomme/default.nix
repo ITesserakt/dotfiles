@@ -52,6 +52,7 @@
       syncthing
       tailscale
       vicinae
+      wluma
       yazi
       zen-browser
       zoxide
