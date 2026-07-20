@@ -76,6 +76,7 @@
         duckdb
         zotero
         jetbrains.rust-rover
+        gpu-screen-recorder
       ];
     };
 }
