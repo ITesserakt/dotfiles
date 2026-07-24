@@ -1,0 +1,27 @@
+diff --git a/gaze-cli/src/doctor.rs b/gaze-cli/src/doctor.rs
+index 302fc7f..068b1a5 100644
+--- a/gaze-cli/src/doctor.rs
++++ b/gaze-cli/src/doctor.rs
+@@ -412,6 +412,8 @@ fn config_findings(config: &Config) -> Vec<Check> {
+ }
+ 
+ fn pam_search_dirs() -> BTreeSet<PathBuf> {
++    let nix_package_dir_name = std::env::var_os("GAZE_NIX_PACKAGE_PATH").map(PathBuf::from);
++
+     let mut dirs = BTreeSet::from([
+         PathBuf::from("/lib/security"),
+         PathBuf::from("/lib64/security"),
+@@ -419,7 +421,12 @@ fn pam_search_dirs() -> BTreeSet<PathBuf> {
+         PathBuf::from("/usr/lib64/security"),
+     ]);
+ 
+-    for base in ["/lib", "/usr/lib"] {
++    let additional_dirs_iter = ["/lib", "/urs/lib"]
++        .iter()
++        .map(Path::new)
++        .chain(nix_package_dir_name.as_deref());
++
++    for base in additional_dirs_iter {
+         let Ok(entries) = fs::read_dir(base) else {
+             continue;
+         };

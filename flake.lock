@@ -298,6 +298,27 @@
         "type": "github"
       }
     },
+    "gaze": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1784520783,
+        "narHash": "sha256-joibQKOfWrRqhpNYGFgNh6agmRI1zIOGnp5fe6o3dUw=",
+        "owner": "GunduLabs",
+        "repo": "gaze",
+        "rev": "28fdae5f4b0b6a85a7e7341bbd9b5d0e10782344",
+        "type": "github"
+      },
+      "original": {
+        "owner": "GunduLabs",
+        "ref": "nixos",
+        "repo": "gaze",
+        "type": "github"
+      }
+    },
     "gnome-shell": {
       "flake": false,
       "locked": {
@@ -1051,6 +1072,7 @@
         "devshell": "devshell",
         "fenix": "fenix",
         "flake-parts": "flake-parts",
+        "gaze": "gaze",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "import-tree": "import-tree",
