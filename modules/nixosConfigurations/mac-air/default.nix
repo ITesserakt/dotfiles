@@ -65,7 +65,11 @@
       );
 
       hardware.asahi = {
-        peripheralFirmwareDirectory = ./firmware;
+        peripheralFirmwareDirectory = fetchTarball {
+          url = "https://files.catbox.moe/xmujnw.xz";
+          name = "firmware";
+          sha256 = "sha256:1hhklc3m99l2xdqxl6imqkhihwpc18qrr2hddnxyfqa77xa906jr";
+        };
         extractPeripheralFirmware = true;
       };
       hardware.sensor.iio.enable = true;
