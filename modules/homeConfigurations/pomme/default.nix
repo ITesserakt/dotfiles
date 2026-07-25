@@ -77,6 +77,7 @@
         zotero
         jetbrains.rust-rover
         gpu-screen-recorder
+        self.packages.${pkgs.stdenv.hostPlatform.system}.balatro
       ];
     };
 }
