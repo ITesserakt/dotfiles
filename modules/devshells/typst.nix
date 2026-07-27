@@ -31,7 +31,7 @@
             owner = "ITesserakt";
             repo = "typst-bmstu-report";
             rev = "master";
-            sha256 = "sha256-Y2+1CHr8Yufz6JYren/zqPe4wJTx3Y0xyNchft2MwYE=";
+            sha256 = "sha256-krmYmznnXqBAU0rNYO57iWbfmJFHSHmVOKvV/EYgWB8=";
           };
 
           typst-bmstu-presentation = pkgs.fetchFromGitHub {
