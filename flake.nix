@@ -54,6 +54,10 @@
     noctalia.url = "github:noctalia-dev/noctalia-shell/legacy-v4";
     noctalia_v5.url = "github:noctalia-dev/noctalia";
     noctalia_v5.inputs.nixpkgs.follows = "nixpkgs";
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nvs.url = "github:jeff-hykin/nix_version_search_cli/59646623bfb379c09d06045e0aeefc3f614ddf22";
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";

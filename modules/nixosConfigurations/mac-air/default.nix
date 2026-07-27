@@ -19,8 +19,8 @@
       mac-air
       nh
       nix
+      noctalia-greeter
       pomme
-      regreet
       stylix
       tailscale
       toshy-emulation
