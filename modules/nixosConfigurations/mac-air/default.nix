@@ -12,7 +12,7 @@
       # self.modules.nixos.box64-binfmt
       beesd
       btrfs
-      # driftwm
+      driftwm
       extra-substituters
       filesystem
       hyprland

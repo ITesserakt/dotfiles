@@ -1,6 +1,9 @@
-{ self, ... }: {
-  flake.nixosModules.driftwm = { pkgs, ... }: {
-    services.displayManager.sessionPackages = [ self.packages.${pkgs.stdenv.hostPlatform.system}.driftwm ];
-    environment.systemPackages = [ self.packages.${pkgs.stdenv.hostPlatform.system}.driftwm ];
+{ inputs, ... }: {
+  flake.nixosModules.driftwm = {
+    imports = [
+      inputs.driftwm.nixosModules.default
+    ];
+
+    programs.driftwm.enable = true;
   };
 }
