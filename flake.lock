@@ -1418,11 +1418,11 @@
         "systems": "systems_6"
       },
       "locked": {
-        "lastModified": 1784249879,
-        "narHash": "sha256-1fBGeEypik6pSKWwsnu1Otup1WvNddMkmX7x1GqHiuE=",
+        "lastModified": 1785173354,
+        "narHash": "sha256-QFq1bl8Of8GL7datfff0zJKyxna3+0FQfHoPAuXYiXA=",
         "owner": "vicinaehq",
         "repo": "vicinae",
-        "rev": "6e9c29ea94d22b0b41e4c64e4551b8a629782de3",
+        "rev": "01cd7cb4936d9cb14272091623da85e7c880f0dc",
         "type": "github"
       },
       "original": {
