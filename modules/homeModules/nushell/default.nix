@@ -23,7 +23,7 @@
 
         plugins = with pkgs.nushellPlugins; [
           gstat
-          polars
+          # polars
         ];
 
         environmentVariables = config.home.sessionVariables // {

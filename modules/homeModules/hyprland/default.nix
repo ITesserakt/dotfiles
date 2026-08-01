@@ -2,7 +2,6 @@
 {
   flake.homeModules.hyprland =
     {
-      config,
       pkgs,
       lib,
       ...
@@ -13,13 +12,7 @@
     {
       home.packages = with pkgs; [
         wl-clipboard
-        (hyprshot.override {
-          hyprland = hyprland-pkgs.hyprland;
-        })
       ];
-      home.sessionVariables = {
-        HYPRSHOT_DIR = "${config.home.homeDirectory}/Pictures/Screenshots";
-      };
 
       xdg = {
         enable = lib.mkForce true;
@@ -44,19 +37,19 @@
         systemd.enable = true;
         configType = "lua";
         extraConfig =
-        # lua
-        ''
-          options = {
-            kitty = "${lib.getExe pkgs.kitty}",
-            btop = "${lib.getExe pkgs.btop}",
-            wpctl = "${pkgs.wireplumber}/bin/wpctl",
-            brightnessctl = "${lib.getExe pkgs.brightnessctl}",
-            playerctl = "${lib.getExe pkgs.playerctl}",
-            notify = "${lib.getExe pkgs.libnotify}"
-          }
-          
-          require("dynamic")
-        '';
+          # lua
+          ''
+            options = {
+              kitty = "${lib.getExe pkgs.kitty}",
+              btop = "${lib.getExe pkgs.btop}",
+              wpctl = "${pkgs.wireplumber}/bin/wpctl",
+              brightnessctl = "${lib.getExe pkgs.brightnessctl}",
+              playerctl = "${lib.getExe pkgs.playerctl}",
+              notify = "${lib.getExe pkgs.libnotify}"
+            }
+
+            require("dynamic")
+          '';
         settings.bind =
           let
             mkBind = bind: action: mkBindWithOpts bind action { };

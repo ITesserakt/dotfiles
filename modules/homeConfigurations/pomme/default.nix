@@ -72,11 +72,9 @@
 
       home.packages = with pkgs; [
         telegram-desktop
-        wayshot
-        duckdb
         zotero
-        jetbrains.rust-rover
-        gpu-screen-recorder
+        zed-editor-fhs
+        wf-recorder
         self.packages.${pkgs.stdenv.hostPlatform.system}.balatro
       ];
     };
