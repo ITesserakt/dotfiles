@@ -1,3 +1,3 @@
 {
-  flake.nixosModules.regreet.programs.regreet.enable = true;
+  flake.nixosModules.regreet.services.displayManager.regreet.enable = true;
 }

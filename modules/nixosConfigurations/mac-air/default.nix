@@ -12,7 +12,7 @@
       # self.modules.nixos.box64-binfmt
       beesd
       btrfs
-      driftwm
+      # driftwm
       extra-substituters
       filesystem
       hyprland
@@ -50,19 +50,19 @@
 
       boot.supportedFilesystems = [ "apfs" ];
 
-      specialisation.fairydust.configuration.boot.kernelPackages = lib.mkForce (
-        config.hardware.asahi.pkgs.linuxPackagesFor (
-          config.hardware.asahi.pkgs.linux-asahi.kernel.overrideAttrs {
-            src = pkgs.fetchFromGitHub {
-              owner = "AsahiLinux";
-              repo = "linux";
-              rev = "c83992242bc1e38bfc861a91696534479a2dbdf4";
-              sha256 = "sha256-sGcgrrf/rpb8u9dvwiTFdNjp18UyuRhW94biH1WMO5I=";
-            };
-            version = "7.0.13";
-          }
-        )
-      );
+      # specialisation.fairydust.configuration.boot.kernelPackages = lib.mkForce (
+      #   config.hardware.asahi.pkgs.linuxPackagesFor (
+      #     config.hardware.asahi.pkgs.linux-asahi.kernel.overrideAttrs {
+      #       src = pkgs.fetchFromGitHub {
+      #         owner = "AsahiLinux";
+      #         repo = "linux";
+      #         rev = "e3e35907c17a05773d481e58a566bf9108166cc5";
+      #         sha256 = "sha256-hmxu1NcS3Ce8VpJahgZLs7mjh3ZBHq3sW5NVO3DqglU=";
+      #       };
+      #       version = "7.1.5";
+      #     }
+      #   )
+      # );
 
       hardware.asahi = {
         peripheralFirmwareDirectory = fetchTarball {
