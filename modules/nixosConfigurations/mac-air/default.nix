@@ -15,6 +15,7 @@
       # driftwm
       extra-substituters
       filesystem
+      gaze
       hyprland
       mac-air
       nh
