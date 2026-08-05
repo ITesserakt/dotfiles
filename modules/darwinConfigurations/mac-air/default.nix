@@ -7,6 +7,7 @@
       mac-app-util
       nix
       stylix
+      yabai
     ];
   };
 
@@ -35,5 +36,7 @@
         microvm-run
         inputs.microvm.packages.${pkgs.stdenv.hostPlatform.system}.microvm
       ];
+
+    system.primaryUser = "apfel";
   };
 }
