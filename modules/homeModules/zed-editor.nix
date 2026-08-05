@@ -1,5 +1,5 @@
 {
-  flake.homeModules.zed-editor = { pkgs, ... }: {
+  flake.homeModules.zed-editor = {
     programs.zed-editor = {
       enable = true;
       userKeymaps = [
@@ -46,6 +46,15 @@
         semantic_tokens = "combined";
         sticky_scroll.enabled = true;
         toolbar.breadcrumbs = true;
+      };
+
+      userSettings.lsp = {
+        rust-analyzer.initialization_options = {
+          assist.expressionFillDefault = "default";
+          check.workspace = false;
+          completion.addSemicolonToUnit = true;
+          completion.callable.snippets = "add_parentheses";
+        };
       };
 
       userSettings.languages = {

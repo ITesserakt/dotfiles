@@ -16,5 +16,6 @@
 
     stylix.icons.enable = lib.mkForce false;
     stylix.targets.zed.fonts.override.monospace.name = "Monaspace Krypton Frozen";
+    programs.zed-editor.userSettings.buffer_font_size = lib.mkForce 13;
   };
 }
