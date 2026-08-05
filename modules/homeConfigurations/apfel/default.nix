@@ -46,6 +46,7 @@
       syncthing
       vicinae
       yazi
+      zed-editor
       zen-browser
       zoxide
     ];
