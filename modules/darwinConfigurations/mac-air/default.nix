@@ -4,6 +4,7 @@
     modules = with self.modules.darwin; [
       base
       mac-air
+      mac-app-util
       nix
       stylix
     ];

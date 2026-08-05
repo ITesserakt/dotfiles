@@ -6,11 +6,11 @@
       users.users.apfel = {
         uid = 502;
         description = "apfel";
-        shell = pkgs.nushell;
+        shell = pkgs.fish;
       };
 
       users.knownUsers = [ "apfel" ];
-      programs.zsh.enable = true;
+      programs.fish.enable = true;
     };
 
   flake.homeConfigurations.apfel = inputs.home-manager.lib.homeManagerConfiguration {
@@ -29,9 +29,11 @@
       carapace
       direnv
       eza
+      fish
       git
       helix
       kitty
+      mac-app-util
       nh
       nix-index
       nix-search-tv
@@ -48,7 +50,7 @@
   };
 
   flake.homeModules.apfel =
-    { pkgs, lib, ... }:
+    { pkgs, ... }:
     {
       home.username = "apfel";
       home.homeDirectory = "/Users/apfel";
@@ -63,11 +65,5 @@
         obsidian
         zotero
       ];
-
-      home.sessionVariables = {
-        SHELL = "${lib.getExe pkgs.nushell} -l -i";
-      };
-
-      programs.zsh.enable = true;
     };
 }
