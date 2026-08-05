@@ -14,9 +14,11 @@
         system = prev.stdenv.hostPlatform.system;
         stable = import inputs.stable-nixpkgs {
           inherit system;
+          config.allowUnfree = true;
         };
         nightly = import inputs.nightly-nixpkgs {
           inherit system;
+          config.allowUnfree = true;
         };
       in
       overlay { inherit stable nightly; };

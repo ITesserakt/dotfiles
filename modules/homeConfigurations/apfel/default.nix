@@ -16,9 +16,11 @@
   flake.homeConfigurations.apfel = inputs.home-manager.lib.homeManagerConfiguration {
     pkgs = import inputs.nixpkgs {
       system = "aarch64-darwin";
-      allowUnfree = true;
+      config.allowUnfree = true;
       overlays = [
-        (self.meta.mkOverlay ({ stable, ... }: { kitty = stable.kitty; }))
+        (self.meta.mkOverlay ({ stable, ... }: {
+          obsidian = stable.obsidian;
+        }))
       ];
     };
 
