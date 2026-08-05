@@ -20,7 +20,7 @@
           sansSerif.name = "Roboto";
 
           monospace.package = pkgs.monaspace;
-          monospace.name = config.flake.meta.font.monospace;
+          monospace.name = "Monaspace Krypton Var";
         };
 
         opacity.terminal = 0.75;

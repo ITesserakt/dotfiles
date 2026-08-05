@@ -15,5 +15,6 @@
     programs.eza.enableNushellIntegration = true;
 
     stylix.icons.enable = lib.mkForce false;
+    stylix.targets.zed.fonts.override.monospace.name = "Monaspace Krypton Frozen";
   };
 }

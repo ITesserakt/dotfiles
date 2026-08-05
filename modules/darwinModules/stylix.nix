@@ -17,7 +17,7 @@
 				sansSerif.name = "Roboto";
 
 				monospace.package = pkgs.monaspace;
-				monospace.name = config.flake.meta.font.monospace;
+				monospace.name = "Monaspace Krypton Var";
 
 				emoji.package = pkgs.noto-fonts-color-emoji;
 				emoji.name = "Noto Color Emoji";

@@ -25,7 +25,7 @@
 
           monospace = {
             package = pkgs.monaspace;
-            name = config.flake.meta.font.monospace;
+            name = "Monaspace Krypton Var";
           };
 
           emoji = {
