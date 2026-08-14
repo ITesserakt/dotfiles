@@ -27,6 +27,9 @@
     pkgs = import inputs.nixpkgs {
       system = "aarch64-linux";
       config.allowUnfree = true;
+      overlays = [
+        (self.meta.mkOverlay ({ nightly, ... }: { wf-recorder = nightly.wf-recorder; }))
+      ];
     };
 
     modules = with self.homeModules; [
@@ -54,6 +57,7 @@
       vicinae
       wluma
       yazi
+      zed-editor
       zen-browser
       zoxide
     ];
@@ -73,7 +77,6 @@
       home.packages = with pkgs; [
         telegram-desktop
         zotero
-        zed-editor-fhs
         wf-recorder
         self.packages.${pkgs.stdenv.hostPlatform.system}.balatro
       ];
