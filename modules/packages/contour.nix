@@ -43,9 +43,9 @@ in
         inherit (pkgs.stdenv.hostPlatform) system;
       };
       cmakePreset =
-        if pkgs.stdenv.isLinux then
+        if pkgs.stdenv.hostPlatform.isLinux then
           "linux-release"
-        else if pkgs.stdenv.isDarwin then
+        else if pkgs.stdenv.hostPlatform.isDarwin then
           "macos-release"
         else
           throw "Unsupported system: ${pkgs.stdenv.hostPlatform.system}";
@@ -133,7 +133,7 @@ in
             qtmultimedia
             qtdeclarative
           ])
-          ++ pkgs.lib.optionals pkgs.stdenv.isLinux [
+          ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [
             pkgs.libutempter
             pkgs.kdePackages.qtwayland
           ];
@@ -162,7 +162,7 @@ in
           runHook postInstall
         '';
 
-        postInstall = pkgs.lib.optionalString pkgs.stdenv.isLinux ''
+        postInstall = pkgs.lib.optionalString pkgs.stdenv.hostPlatform.isLinux ''
           mkdir -p $out/nix-support $terminfo/share
           mv $out/share/terminfo $terminfo/share/
 

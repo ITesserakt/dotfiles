@@ -7,13 +7,13 @@
         comma
         nixd
         nil
-      ] ++ lib.optionals (!pkgs.stdenv.isDarwin) [
+      ] ++ lib.optionals (pkgs.stdenv.hostPlatform.isLinux) [
         libreoffice-qt6-fresh
       ];
 
       home.sessionVariables = {
         NU_EXPERIMENTAL_OPTIONS = "native-clip";
-      } // lib.optionalAttrs (!pkgs.stdenv.isDarwin) {
+      } // lib.optionalAttrs (pkgs.stdenv.hostPlatform.isLinux) {
         NIXOS_OZONE_WL = 1;
         OZONE_PLATFORM = "wayland";
         MOZ_ENABLE_WAYLAND = 1;
