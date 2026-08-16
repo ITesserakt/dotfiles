@@ -179,10 +179,6 @@
         };
       };
     };
-    home.packages = [
-      inputs.noctalia_v5.packages.${pkgs.stdenv.hostPlatform.system}.default
-      pkgs.evtest
-    ];
   };
 
   flake.homeModules.noctalia-shell =

@@ -1,11 +1,13 @@
-{ inputs, ... }:
-{
+{ inputs, ... }: {
   flake.homeModules.pomme =
     {
       pkgs,
       lib,
       ...
     }:
+    let
+      system = pkgs.stdenv.hostPlatform.system;
+    in
     {
       programs.eza.enableNushellIntegration = true;
 
@@ -26,7 +28,6 @@
       '';
       programs.zen-browser.package =
         let
-          system = pkgs.stdenv.hostPlatform.system;
           zen-browser = inputs.zen-browser.packages.${system}.twilight;
         in
         zen-browser.overrideAttrs (prev: {
@@ -79,6 +80,48 @@
         };
       };
 
+      # FIXME: add python to noctalia PATH
+      #        currently, evaluation will panic with two noctalia's bin conflicting
+      programs.noctalia.package =
+        let
+          noctalia = inputs.noctalia_v5.packages.${system}.default;
+          pythonExe = baseNameOf (lib.getExe pkgs.python3);
+          libs = lib.makeLibraryPath [
+            pkgs.stdenv.cc.cc.lib
+            pkgs.zlib
+          ];
+          python = pkgs.symlinkJoin {
+            name = "python-with-cxx";
+            paths = [ pkgs.python3 ];
+            nativeBuildInputs = [ pkgs.makeWrapper ];
+
+            postBuild = ''
+              rm $out/bin/${pythonExe}
+
+              makeWrapper ${lib.getExe pkgs.python3} $out/bin/${pythonExe} \
+                --prefix LD_LIBRARY_PATH : ${libs}
+            '';
+          };
+          env = lib.makeBinPath [
+            python
+            pkgs.gpu-screen-recorder
+            pkgs.evtest
+          ];
+        in
+        pkgs.symlinkJoin {
+          name = "noctalia-wrapped";
+          paths = [ noctalia ];
+          meta.mainProgram = "noctalia";
+          nativeBuildInputs = [ pkgs.makeWrapper ];
+
+          postBuild = ''
+            rm $out/bin/noctalia
+
+            makeWrapper ${lib.getExe noctalia} $out/bin/noctalia \
+              --prefix PATH : ${env}
+          '';
+        };
+
       programs.noctalia.settings = lib.mapAttrsRecursive (_: value: lib.mkForce value) {
         bar.default = {
           center = [ ];
@@ -115,77 +158,5 @@
 
         widget.temp.stat = "cpu_usage";
       };
-
-      # programs.noctalia-shell.settings = {
-      #   bar.barType = lib.mkForce "floating";
-      #   bar.density = "comfortable";
-      #   bar.contentPadding = 10;
-      #   bar.widgets.center = lib.mkForce [ ];
-      #   bar.widgets.left = lib.mkForce [
-      #     {
-      #       id = "plugin:workspace-overview";
-
-      #     }
-      #     {
-      #       id = "Workspace";
-      #       labelMode = "name";
-      #     }
-      #     {
-      #       id = "SystemMonitor";
-      #       diskPath = "/";
-      #       compactMode = false;
-      #       showCpuTemp = false;
-      #       useMonospaceFont = false;
-      #     }
-      #   ];
-      #   bar.widgets.right = lib.mkForce [
-      #     {
-      #       id = "Tray";
-      #       colorizeIcons = false;
-      #       drawerEnabled = false;
-      #       hidePassive = false;
-      #       chevronColor = "none";
-      #     }
-      #     {
-      #       id = "MediaMini";
-      #       showVisualizer = false;
-      #       showProgressRing = false;
-      #       showAlbumArt = false;
-      #     }
-      #     {
-      #       id = "KeyboardLayout";
-      #       displayMode = "forceOpen";
-      #     }
-      #     {
-      #       id = "Battery";
-      #       displayMode = "graphic";
-      #       showNoctaliaPerformance = true;
-      #       showPowerProfiles = true;
-      #     }
-      #     {
-      #       id = "Volume";
-      #       displayMode = "onhover";
-      #     }
-      #     {
-      #       id = "Brightness";
-      #       displayMode = "alwaysShow";
-      #     }
-      #     {
-      #       id = "NotificationHistory";
-      #     }
-      #     {
-      #       id = "ControlCenter";
-      #     }
-      #     {
-      #       id = "Clock";
-      #     }
-      #   ];
-
-      #   ui.panelBackgroundOpacity = lib.mkForce 0.6;
-
-      #   general.forceBlackScreenCorners = true;
-
-      #   idle.enabled = true;
-      # };
     };
 }
