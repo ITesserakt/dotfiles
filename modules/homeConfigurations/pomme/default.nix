@@ -48,6 +48,8 @@
       nix-index
       nix-search-tv
       noctalia-shell_v5
+      noctalia_wallhaven
+      noctalia_wallpaper-depth
       nushell
       oh-my-posh
       pomme

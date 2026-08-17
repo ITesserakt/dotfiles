@@ -20,7 +20,7 @@
       stylix.targets.zen-browser.enable = false;
       stylix.polarity = "either";
       stylix.targets.zed.fonts.override.monospace.name = "Monaspace Krypton Frozen";
-      
+
       programs.zen-browser.extraPrefs = ''
         lockPref("media.gmp-widevinecdm.version", "system-installed");
         lockPref("media.gmp-widevinecdm.visible", true);
@@ -83,30 +83,11 @@
         };
       };
 
-      # FIXME: add python to noctalia PATH
-      #        currently, evaluation will panic with two noctalia's bin conflicting
       programs.noctalia.package =
         let
           noctalia = inputs.noctalia_v5.packages.${system}.default;
-          pythonExe = baseNameOf (lib.getExe pkgs.python3);
-          libs = lib.makeLibraryPath [
-            pkgs.stdenv.cc.cc.lib
-            pkgs.zlib
-          ];
-          python = pkgs.symlinkJoin {
-            name = "python-with-cxx";
-            paths = [ pkgs.python3 ];
-            nativeBuildInputs = [ pkgs.makeWrapper ];
-
-            postBuild = ''
-              rm $out/bin/${pythonExe}
-
-              makeWrapper ${lib.getExe pkgs.python3} $out/bin/${pythonExe} \
-                --prefix LD_LIBRARY_PATH : ${libs}
-            '';
-          };
           env = lib.makeBinPath [
-            python
+            pkgs.python3
             pkgs.gpu-screen-recorder
             pkgs.evtest
           ];
