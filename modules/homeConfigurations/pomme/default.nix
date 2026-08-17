@@ -52,6 +52,7 @@
       oh-my-posh
       pomme
       stylix
+      sunsetr
       syncthing
       tailscale
       vicinae
