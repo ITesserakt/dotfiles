@@ -18,6 +18,9 @@
 
       stylix.targets.zen-browser.profileNames = [ "tp6i6jfo.Default Profile" ];
       stylix.targets.zen-browser.enable = false;
+      stylix.polarity = "either";
+      stylix.targets.zed.fonts.override.monospace.name = "Monaspace Krypton Frozen";
+      
       programs.zen-browser.extraPrefs = ''
         lockPref("media.gmp-widevinecdm.version", "system-installed");
         lockPref("media.gmp-widevinecdm.visible", true);

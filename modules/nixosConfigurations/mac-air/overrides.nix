@@ -9,6 +9,8 @@
     services.beesd.filesystems.root.hashTableSizeMB = lib.mkForce 256;
     services.beesd.filesystems.root.extraOptions = lib.mkForce [ "--thread-count" "2" ];
 
+    stylix.polarity = "either";
+
     fileSystems."/".options = [ "compress-force=zstd:2" ];
     fileSystems."/home".options = [ "compress-force=zstd:2" ];
     fileSystems."/nix".options = [ "compress-force=zstd:2" ];

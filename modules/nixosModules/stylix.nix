@@ -1,7 +1,7 @@
-{ inputs, config, ... }:
+{ inputs, self, ... }:
 {
   flake.nixosModules.stylix =
-    { pkgs, ... }:
+    { pkgs, lib, ... }:
     {
       imports = [
         inputs.stylix.nixosModules.stylix
@@ -9,8 +9,8 @@
 
       stylix = {
         enable = true;
-        base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
-        polarity = "dark";
+        base16Scheme = "${pkgs.base16-schemes}/share/themes/${self.meta.global-theme}.yaml";
+        polarity = lib.mkDefault "dark";
 
         fonts = {
           serif = {

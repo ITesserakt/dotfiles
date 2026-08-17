@@ -4,6 +4,8 @@
     latitude = "55.771785";
     longitude = "37.695986";
 
+    global-theme = "nord";
+
     mkOverlay =
       overlay: final: prev:
       let

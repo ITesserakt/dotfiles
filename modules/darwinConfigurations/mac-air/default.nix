@@ -22,6 +22,8 @@
     nix.linux-builder.enable = true;
     nix.linux-builder.config.virtualisation.cores = 4;
 
+    stylix.polarity = "either";
+
     environment.systemPackages =
       let
         runner = self.nixosConfigurations.microVM.config.microvm.declaredRunner;
