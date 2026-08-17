@@ -30,8 +30,6 @@
 
   flake.nixosModules.mac-air =
     {
-      pkgs,
-      config,
       lib,
       ...
     }:

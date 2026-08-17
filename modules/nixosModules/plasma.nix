@@ -16,10 +16,10 @@
 
     environment.systemPackages = with pkgs; [
       kdePackages.qtwayland
-      self.flake.packages.${pkgs.stdenv.hostPlatform.system}.sddm-astronaut-theme
+      self.packages.${pkgs.stdenv.hostPlatform.system}.sddm-astronaut-theme
     ];
 
-    environment.plasma.excludePackages = with pkgs.kdePackages; [
+    environment.plasma6.excludePackages = with pkgs.kdePackages; [
       dolphin
       elisa
       kate
