@@ -8,7 +8,7 @@
         owner = "ITesserakt";
         repo = "auf";
         rev = "master";
-        sha256 = "sha256-FOcLw8rIbCs16rWl55uVZHSLjX2fgQfBQvwFNAp/0hY=";
+        sha256 = "sha256-F+fAeBtgJ9yzFnwjj72NslwbszhIz7PVwQ6g4jpacCs=";
       };
 
       cargoHash = "sha256-hqatOKS1iEuLmdjND15sS9quEjNzHfrYLrOqDNtz8Zc=";
