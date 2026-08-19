@@ -19,6 +19,7 @@
       nh
       nix
       nvidia
+      ollama
       plymouth
       redmi
       regreet

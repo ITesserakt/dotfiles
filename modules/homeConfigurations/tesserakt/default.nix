@@ -27,10 +27,6 @@
     pkgs = import inputs.nixpkgs {
       system = "x86_64-linux";
       config.allowUnfree = true;
-
-      overlays = with self.overlays; [
-        clapper
-      ];
     };
 
     modules = with self.homeModules; [
@@ -55,7 +51,6 @@
       nushell
       nvs
       oh-my-posh
-      # ollama
       spotify
       stylix
       syncthing

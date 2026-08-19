@@ -24,10 +24,7 @@
       #   openFirewall = true;
       #   capSysAdmin = true;
       # };
-      services.open-webui = {
-        enable = false;
-        openFirewall = false;
-      };
+      services.ollama.package = pkgs.ollama-cuda;
 
       hardware.graphics.extraPackages = with pkgs; [
         libvdpau-va-gl

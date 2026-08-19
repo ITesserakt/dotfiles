@@ -24,6 +24,7 @@
         "modesetting"
       ];
       nixpkgs.config.nvidia.acceptLicense = true;
+      nixpkgs.config.cudaSupport = true;
       nixpkgs.config.allowUnfree = lib.mkForce true;
 
       nix.settings.substituters = [
