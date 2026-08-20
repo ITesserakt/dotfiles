@@ -48,6 +48,8 @@
             '';
         });
 
+      services.ollama.acceleration = false;
+
       wayland.windowManager.hyprland.settings = {
         config.input.touchpad = {
           disable_while_typing = true;

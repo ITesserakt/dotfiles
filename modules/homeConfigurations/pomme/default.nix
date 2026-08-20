@@ -52,6 +52,7 @@
       noctalia_wallpaper-depth
       nushell
       oh-my-posh
+      ollama
       pomme
       stylix
       sunsetr
@@ -82,6 +83,7 @@
         zotero
         wf-recorder
         self.packages.${pkgs.stdenv.hostPlatform.system}.balatro
+        ollama
       ];
     };
 }
