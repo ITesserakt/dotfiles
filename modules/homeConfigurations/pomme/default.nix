@@ -84,6 +84,7 @@
         wf-recorder
         self.packages.${pkgs.stdenv.hostPlatform.system}.balatro
         ollama
+        graphite
       ];
     };
 }
