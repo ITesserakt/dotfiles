@@ -6,7 +6,6 @@
       btrfs
       filesystem
       gnome
-      grub
       nh
       nix
       ssh
@@ -19,6 +18,12 @@
     imports = [
       ./_hardware-configuration.nix
     ];
+
+    boot.loader.systemd-boot = {
+      enable = true;
+      configurationLimit = 10;
+    };
+    boot.loader.grub.enable = pkgs.lib.mkForce false;
     
     system.stateVersion = "24.05";
     boot.kernelPackages = pkgs.linuxPackages_6_18;
