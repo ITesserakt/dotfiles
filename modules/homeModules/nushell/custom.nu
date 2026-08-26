@@ -1,8 +1,9 @@
 # A funny way to get prime numbers
 def "math primes" [
   up_to: int
+	start_from: int = 2
 ] {
-  2..$up_to |
+  $start_from..$up_to |
   	each {|it| '1' | fill -c '1' -w $it } | 
   	find -r '^1?$|^(11+?)\1+$' --invert | 
   	each {|it| $it | str length }
