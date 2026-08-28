@@ -60,7 +60,7 @@
           ouch = pkgs.yaziPlugins.ouch;
           duckdb = pkgs.yaziPlugins.duckdb;
         };
-        vfs.services = {
+        vfs.sftp = {
           redmi = {
             type = "sftp";
             host = "100.66.89.100";
