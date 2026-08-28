@@ -92,6 +92,9 @@
             pkgs.python3
             pkgs.gpu-screen-recorder
             pkgs.evtest
+            pkgs.grim
+            pkgs.slurp
+            pkgs.tesseract
           ];
         in
         pkgs.symlinkJoin {
