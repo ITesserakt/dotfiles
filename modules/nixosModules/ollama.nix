@@ -5,8 +5,8 @@
       host = "0.0.0.0";
       port = 11434;
       loadModels = [
-        "granite4.1:3b"
-        "granite4.1:8b"
+        "gemma4:e2b"
+        "gpt-oss:latest"
       ];
       syncModels = true;
       user = "ollama";

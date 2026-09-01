@@ -18,11 +18,11 @@
       kde-connect
       nh
       nix
+      noctalia-greeter
       nvidia
       ollama
       plymouth
       redmi
-      regreet
       steam
       stylix
       tailscale
