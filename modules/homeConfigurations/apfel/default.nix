@@ -64,6 +64,8 @@
       home.shell.enableNushellIntegration = true;
       home.shell.enableZshIntegration = true;
 
+      home.pointerCursor.enable = false;
+
       home.packages = with pkgs; [
         obsidian
         zotero
