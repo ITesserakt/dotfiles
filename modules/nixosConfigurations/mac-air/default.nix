@@ -48,20 +48,23 @@
       ];
 
       boot.supportedFilesystems = [ "apfs" ];
-
-      # specialisation.fairydust.configuration.boot.kernelPackages = lib.mkForce (
-      #   config.hardware.asahi.pkgs.linuxPackagesFor (
-      #     config.hardware.asahi.pkgs.linux-asahi.kernel.overrideAttrs {
-      #       src = pkgs.fetchFromGitHub {
-      #         owner = "AsahiLinux";
-      #         repo = "linux";
-      #         rev = "e3e35907c17a05773d481e58a566bf9108166cc5";
-      #         sha256 = "sha256-hmxu1NcS3Ce8VpJahgZLs7mjh3ZBHq3sW5NVO3DqglU=";
-      #       };
-      #       version = "7.1.5";
-      #     }
-      #   )
-      # );
+      specialisation.fairydust.configuration =
+        { pkgs, config, ... }:
+        let
+          linux-fairydust-kernel = config.hardware.asahi.pkgs.linux-asahi.kernel.overrideAttrs {
+            src = pkgs.fetchFromGitHub {
+              owner = "AsahiLinux";
+              repo = "linux";
+              rev = "ce9f2eba72c061a50b2d790450e90af3439d8c24";
+              sha256 = "sha256-W3yMSUe6xa+M/X0k86kbCS4g3d7jJmO3WV9L/5rQRhI=";
+            };
+            version = "7.1.13";
+          };
+          linux-fairydust = pkgs.linuxPackagesFor linux-fairydust-kernel;
+        in
+        {
+          boot.kernelPackages = lib.mkForce linux-fairydust;
+        };
 
       hardware.asahi = {
         peripheralFirmwareDirectory = fetchTarball {
