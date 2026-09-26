@@ -11,18 +11,19 @@
     ];
   };
 
-  flake.modules.darwin.mac-air = { pkgs, ... }: {
-    system.stateVersion = 6;
-    nixpkgs.hostPlatform = "aarch64-darwin";
+  flake.darwinConfigurations."microvm" = inputs.nix-darwin.lib.darwinSystem {
+    modules = with self.modules.darwin; [
+      base
+      mac-app-util
+      nix
+      stylix
+      yabai
+    ];
+  };
 
-    programs.zsh.enable = true;
-
-    security.pam.services.sudo_local.touchIdAuth = true;
-
+  flake.modules.darwin.microvm = { pkgs, ... }: {
     nix.linux-builder.enable = true;
     nix.linux-builder.config.virtualisation.cores = 4;
-
-    stylix.polarity = "either";
 
     environment.systemPackages =
       let
@@ -38,6 +39,21 @@
         microvm-run
         inputs.microvm.packages.${pkgs.stdenv.hostPlatform.system}.microvm
       ];
+
+    nixpkgs.hostPlatform = "aarch64-darwin";
+    system.stateVersion = 6;
+    system.primaryUser = "microvm";
+  };
+
+  flake.modules.darwin.mac-air = {
+    system.stateVersion = 6;
+    nixpkgs.hostPlatform = "aarch64-darwin";
+
+    programs.zsh.enable = true;
+
+    security.pam.services.sudo_local.touchIdAuth = true;
+
+    stylix.polarity = "either";
 
     system.primaryUser = "apfel";
   };
