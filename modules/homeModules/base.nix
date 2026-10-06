@@ -8,7 +8,7 @@
         nixd
         nil
       ] ++ lib.optionals (pkgs.stdenv.hostPlatform.isLinux) [
-        libreoffice-qt6-fresh
+        libreoffice-qt
       ];
 
       home.sessionVariables = {

@@ -28,7 +28,7 @@
       system = "aarch64-linux";
       config.allowUnfree = true;
       overlays = [
-        (self.meta.mkOverlay ({ nightly, ... }: { wf-recorder = nightly.wf-recorder; }))
+        (self.meta.mkOverlay ({ stable, ... }: { libreoffice-qt = stable.libreoffice-qt; }))
       ];
     };
 
