@@ -16,7 +16,6 @@
       gnome-logs
       gnome-music
       gnome-connections
-      gnome-photos
       gnome-text-editor
       gnome-tour
       gnome-system-monitor
