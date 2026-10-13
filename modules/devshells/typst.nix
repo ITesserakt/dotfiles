@@ -37,8 +37,8 @@
           typst-bmstu-presentation = pkgs.fetchFromGitHub {
             owner = "ITesserakt";
             repo = "typst-bmstu-presentation";
-            rev = "a6b0c39dc145bf61cb19c707adec94fa2ba1e600";
-            sha256 = "sha256-7cXGWU+rPjo0s+w9HebACwx0iieZ/987uoT4le11Qzk=";
+            rev = "8617da85f4b777f3110933e2ef7de7da327274d5";
+            sha256 = "sha256-LPdxZuVFEQc41pCqB5HxoVCUfxkD8t4TLyWWSEpiTOE=";
           };
 
           typst-bmstu-thesis = pkgs.fetchFromGitHub {
