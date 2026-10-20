@@ -18,9 +18,14 @@
       system = "aarch64-darwin";
       config.allowUnfree = true;
       overlays = [
-        (self.meta.mkOverlay ({ stable, ... }: {
-          obsidian = stable.obsidian;
-        }))
+        (self.meta.mkOverlay (
+          { ... }: {
+            zotero =
+              (import (builtins.getFlake "github:NixOS/nixpkgs/44a91898084f46797b5fac650c7e8c9ac38c43d4") {
+                system = "aarch64-darwin";
+              }).zotero;
+          }
+        ))
       ];
     };
 
