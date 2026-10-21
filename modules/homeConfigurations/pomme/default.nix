@@ -28,7 +28,15 @@
       system = "aarch64-linux";
       config.allowUnfree = true;
       overlays = [
-        (self.meta.mkOverlay ({ stable, ... }: { libreoffice-qt = stable.libreoffice-qt; }))
+        (self.meta.mkOverlay (
+          { stable, ... }: {
+            libreoffice-qt = stable.libreoffice-qt;
+            zotero =
+              (import (builtins.getFlake "github:NixOS/nixpkgs/44a91898084f46797b5fac650c7e8c9ac38c43d4") {
+                system = "aarch64-darwin";
+              }).zotero;
+          }
+        ))
       ];
     };
 
