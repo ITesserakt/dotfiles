@@ -12,6 +12,7 @@
       # self.modules.nixos.box64-binfmt
       beesd
       btrfs
+      builders
       # driftwm
       extra-substituters
       filesystem
