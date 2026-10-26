@@ -57,5 +57,9 @@
     stylix.polarity = "either";
 
     system.primaryUser = "apfel";
+
+    homebrew.enable = true;
+    homebrew.enableFishIntegration = true;
+    homebrew.onActivation.cleanup = "zap";
   };
 }
