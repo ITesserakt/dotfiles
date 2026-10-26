@@ -51,6 +51,7 @@
       url = "github:Yeshey/nixos-box64-binfmt";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     noctalia.url = "github:noctalia-dev/noctalia-shell/legacy-v4";
     noctalia_v5.url = "github:noctalia-dev/noctalia";
     noctalia_v5.inputs.nixpkgs.follows = "nixpkgs";

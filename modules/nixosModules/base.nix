@@ -1,6 +1,6 @@
 {
   flake.nixosModules.base =
-    { pkgs, ... }:
+    { pkgs, lib, ... }:
     {
       boot = {
         loader.efi.canTouchEfiVariables = true;
@@ -52,7 +52,7 @@
         sane.enable = true;
       };
 
-      powerManagement.enable = true;
+      powerManagement.enable = lib.mkDefault true;
 
       services = {
         xserver = {
@@ -103,7 +103,5 @@
       programs = {
         nix-ld.enable = true;
       };
-
-      xdg.portal.enable = true;
     };
 }
