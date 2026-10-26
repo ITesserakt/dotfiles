@@ -3,7 +3,6 @@
   flake.darwinConfigurations."MacBook-Air-Vladimir" = inputs.nix-darwin.lib.darwinSystem {
     modules = with self.modules.darwin; [
       base
-      builders
       mac-air
       mac-app-util
       nix
