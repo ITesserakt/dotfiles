@@ -39,22 +39,6 @@
             run = "plugin ouch";
             desc = "Compress with ouch";
           }
-          {
-            on = [
-              "g"
-              "o"
-            ];
-            run = "plugin duckdb -open";
-            desc = "Open with duckdb";
-          }
-          {
-            on = [
-              "g"
-              "u"
-            ];
-            run = "plugin duckdb -ui";
-            desc = "Open with duckdb ui";
-          }
         ];
         plugins = {
           ouch = pkgs.yaziPlugins.ouch;
@@ -77,6 +61,12 @@
             type = "sftp";
             host = "100.84.11.95";
             user = "root";
+            port = 22;
+          };
+          albuquerque = {
+            type = "sftp";
+            host = "100.97.251.70";
+            user = "mars";
             port = 22;
           };
         };
