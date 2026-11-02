@@ -25,5 +25,10 @@
       wslConf.automount.enabled = true;
     };
     networking.hostName = "albuquerque";
+
+    nix.settings.trusted-users = [ "@wheel" "nixremote" ];
+
+    boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+    nix.settings.extra-platforms = [ "aarch64-linux" ];
   };
 }
