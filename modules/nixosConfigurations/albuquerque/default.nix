@@ -6,6 +6,7 @@
       filesystem
       nh
       nix
+      ssh
       stylix
       tailscale
     ];
@@ -22,6 +23,7 @@
       enable = true;
       defaultUser = "mars";
       docker-desktop.enable = false;
+      interop.register = true;
       wslConf.automount.enabled = true;
     };
     networking.hostName = "albuquerque";
