@@ -7,7 +7,6 @@
       mac-app-util
       nix
       stylix
-      yabai
     ];
   };
 
