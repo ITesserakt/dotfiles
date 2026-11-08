@@ -37,9 +37,9 @@
       direnv
       eza
       fish
+      ghostty
       git
       helix
-      kitty
       mac-app-util
       nh
       nix-index
