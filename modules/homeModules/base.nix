@@ -7,8 +7,6 @@
         comma
         nixd
         nil
-      ] ++ lib.optionals (pkgs.stdenv.hostPlatform.isLinux) [
-        libreoffice-qt
       ];
 
       home.sessionVariables = {

@@ -52,6 +52,7 @@
         vivaldi
         telegram-desktop
         simple-scan
+        libreoffice-qt
       ];
     };
 }

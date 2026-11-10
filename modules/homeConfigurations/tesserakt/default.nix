@@ -78,19 +78,20 @@
       };
 
       home.packages = with pkgs; [
-        telegram-desktop
+        config.flake.packages.${pkgs.stdenv.hostPlatform.system}.test-vkr
+        distrobox
+        graphite
+        jetbrains-toolbox
+        jetbrains.rust-rover
+        kdePackages.wacomtablet
+        libreoffice-qt
         obsidian
         remmina
-        kdePackages.wacomtablet
-        graphite
         rnote
-        jetbrains.rust-rover
-        zotero
+        telegram-desktop
         typst
-        distrobox
-        config.flake.packages.${pkgs.stdenv.hostPlatform.system}.test-vkr
         wayshot
-        jetbrains-toolbox
+        zotero
       ];
     };
 }
